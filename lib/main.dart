@@ -1,13 +1,20 @@
 import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundController);
   final prefs = await SharedPreferences.getInstance();
   final String? token = prefs.getString('token');
   runApp(MyApp(token: token));
-  //print(token);
+}
+
+@pragma('vm:entry-point')
+Future<void> firebaseMessagingBackgroundController(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  print('Handling a background message ${message.notification!.title.toString()}');
 }
 
 class MyApp extends StatelessWidget {

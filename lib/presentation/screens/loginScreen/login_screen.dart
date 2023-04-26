@@ -18,6 +18,10 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     super.initState();
     NotificationServices().requestNotificationPermission();
+    NotificationServices().firebaseInit();
+    NotificationServices().getDeviceToken().then((value) {
+      print(value);
+    });
   }
 
   @override

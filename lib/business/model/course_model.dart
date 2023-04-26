@@ -520,7 +520,7 @@ class Item {
     };
 }
 
-enum Duration { EMPTY, THE_30_MINS, THE_50_MINS, THE_40_MINS, THE_20_MINS, THE_10_MINS }
+enum Duration { EMPTY, THE_30_MINS, THE_50_MINS, THE_40_MINS, THE_20_MINS, THE_10_MINS, zero }
 
 final durationValues = EnumValues({
     "": Duration.EMPTY,
