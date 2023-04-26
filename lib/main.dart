@@ -7,6 +7,7 @@ Future<void> main() async {
   final prefs = await SharedPreferences.getInstance();
   final String? token = prefs.getString('token');
   runApp(MyApp(token: token));
+  //print(token);
 }
 
 class MyApp extends StatelessWidget {
