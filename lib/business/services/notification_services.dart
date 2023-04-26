@@ -109,4 +109,12 @@ class NotificationServices {
       print('Token Refreshed');
     });
   }
+
+  // void handleMessages(BuildContext context, RemoteMessage message) {
+  //   FirebaseMessaging.onMessage.listen((message) {
+  //     print('Got a message whilst in the foreground!');
+  //     print('Message title: ${message.notification!.title.toString()}');
+  //     print('Message body: ${message.notification!.body.toString()}');
+  //   });
+  // }
 }
