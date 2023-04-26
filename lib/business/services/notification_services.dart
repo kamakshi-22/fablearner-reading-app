@@ -71,7 +71,6 @@ class NotificationServices {
       priority: Priority.high,
       ticker: 'ticker',
       icon: "@drawable/app_icon",
-      color: const Color.fromRGBO(211, 50, 95, 1),
     );
 
     DarwinNotificationDetails darwinNotificationDetails =
