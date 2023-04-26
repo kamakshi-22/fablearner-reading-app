@@ -1,7 +1,6 @@
 import 'package:fablearner_app/exports/business_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
 import 'package:fablearner_app/exports/presentation_exports.dart';
-import 'package:fablearner_app/main.dart';
 import 'package:flutter_html/flutter_html.dart';
 
 class LessonDetailsScreen extends StatefulWidget {
@@ -122,7 +121,9 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
 
   @override
   void dispose() {
-    print('DISPOSE CALLED void dispose()');
+    if (kDebugMode) {
+      print('DISPOSE CALLED void dispose()');
+    }
     removeLesson();
     disposeVideo();
     super.dispose();
@@ -167,7 +168,9 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
       snackBarIsVisible = true;
       //disable forward button
     } else {
-      print('DISPOSE CALLED void forwardTap()');
+      if (kDebugMode) {
+        print('DISPOSE CALLED void forwardTap()');
+      }
       disposeVideo();
       _fetchLessonDetails(appController.currentLessonId!);
       saveLesson();
@@ -195,6 +198,11 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
               '';
       lessonName.value = lesson.name;
       lessonFinished.value = lesson.results.status == 'completed';
+
+      if(kDebugMode){
+        print('lessonUrl.value: ${lessonUrl.value}');
+        
+      }
 
       isLoading.value = false;
     } catch (e) {
