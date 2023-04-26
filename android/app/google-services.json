@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "950846486302",
+    "project_id": "fablearnerflutternotifications",
+    "storage_bucket": "fablearnerflutternotifications.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950846486302:android:330f73474bd50f4988fb0f",
+        "android_client_info": {
+          "package_name": "app.fablearner.online"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "950846486302-q8v6acn2t0socrlnhor9ve8reh26hti5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCadPSM-A4XamTGTlvdLX3Rn3FhKcm03c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "950846486302-q8v6acn2t0socrlnhor9ve8reh26hti5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
