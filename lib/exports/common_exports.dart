@@ -9,7 +9,8 @@ export 'package:flutter/foundation.dart';
 
 export 'dart:async';
 export 'dart:convert';
-
+export 'dart:io';
+export 'dart:math';
 
 /* -------------------------------------------------------------------------- */
 /*                              colors and styles                             */

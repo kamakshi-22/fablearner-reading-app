@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:fablearner_app/exports/common_exports.dart';
 import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -19,13 +18,15 @@ class NotificationServices {
         provisional: false,
         sound: true);
 
-    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-      print('User granted permission: ${settings.authorizationStatus}');
-    } else if (settings.authorizationStatus ==
-        AuthorizationStatus.provisional) {
-      print('User granted permission: ${settings.authorizationStatus}');
-    } else {
-      print('User denied permission: ${settings.authorizationStatus}');
+    if (kDebugMode) {
+      if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+        print('User granted permission: ${settings.authorizationStatus}');
+      } else if (settings.authorizationStatus ==
+          AuthorizationStatus.provisional) {
+        print('User granted permission: ${settings.authorizationStatus}');
+      } else {
+        print('User denied permission: ${settings.authorizationStatus}');
+      }
     }
   }
 
@@ -38,12 +39,13 @@ class NotificationServices {
     var initializationSettings =
         InitializationSettings(android: androidInitialize, iOS: iosInitialize);
 
-    await flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
-    );
+    await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onDidReceiveNotificationResponse: ((payload) {
+      handleMessages(context, message);
+    }));
   }
 
-  void firebaseInit() {
+  void firebaseInit(BuildContext context) {
     FirebaseAnalytics analytics = FirebaseAnalytics.instance;
     //analytics.logAppOpen();
     FirebaseMessaging.onMessage.listen((message) {
@@ -52,15 +54,23 @@ class NotificationServices {
         print('Message title: ${message.notification!.title.toString()}');
         print('Message body: ${message.notification!.body.toString()}');
       }
-      showNotification(message);
+      if (Platform.isAndroid) {
+        initLocalNotifications(context, message);
+        showNotification(message);
+      } else {
+        showNotification(message);
+      }
     });
   }
 
+  //Function to show notification when app is in foreground
   Future<void> showNotification(RemoteMessage message) async {
     AndroidNotificationChannel channel = AndroidNotificationChannel(
-        Random.secure().nextInt(100000).toString(),
-        'Hight Importance Notifications',
-        importance: Importance.max);
+      message.notification!.android!.channelId.toString(),
+      message.notification!.android!.channelId.toString(),
+      importance: Importance.max,
+      showBadge: true,
+    );
 
     AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
@@ -83,11 +93,6 @@ class NotificationServices {
     NotificationDetails notificationDetails = NotificationDetails(
         android: androidNotificationDetails, iOS: darwinNotificationDetails);
 
-    if (kDebugMode) {
-      print('Title: ${message.notification!.title}');
-      print('Body: ${message.notification!.body}');
-    }
-
     Future.delayed(Duration.zero, () {
       flutterLocalNotificationsPlugin.show(
           0,
@@ -105,15 +110,38 @@ class NotificationServices {
   void isTokenRefreshed() async {
     messaging.onTokenRefresh.listen((event) {
       event.toString();
-      print('Token Refreshed');
+      if (kDebugMode) {
+        print('Token Refreshed');
+      }
     });
   }
 
-  // void handleMessages(BuildContext context, RemoteMessage message) {
-  //   FirebaseMessaging.onMessage.listen((message) {
-  //     print('Got a message whilst in the foreground!');
-  //     print('Message title: ${message.notification!.title.toString()}');
-  //     print('Message body: ${message.notification!.body.toString()}');
-  //   });
-  // }
+  Future<void> setupInteractMessage(BuildContext context) async {
+    //when app is terminated
+    RemoteMessage? initialMessage =
+        await FirebaseMessaging.instance.getInitialMessage();
+
+    if (initialMessage != null) {
+      handleMessages(context, initialMessage);
+    }
+
+    //when app is in background
+    FirebaseMessaging.onMessageOpenedApp.listen((event) {
+      handleMessages(context, event);
+    });
+  }
+
+  void handleMessages(BuildContext context, RemoteMessage message) {
+    //FirebaseMessaging.onMessage.listen((message) {
+      if (kDebugMode) {
+        print('Message data: ${message.data['meeting'].toString()}');
+      }
+      if (message.data['meeting'] == 'true') {
+        Get.to(
+          () => const MeetingsScreen(),
+          transition: Transition.rightToLeft,
+        );
+      }
+    //});
+  }
 }

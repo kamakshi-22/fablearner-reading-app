@@ -1,14 +1,14 @@
 import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
 
-class Meetings extends StatefulWidget {
-  const Meetings({Key? key}) : super(key: key);
+class MeetingsScreen extends StatefulWidget {
+  const MeetingsScreen({Key? key}) : super(key: key);
 
   @override
-  _MeetingsState createState() => _MeetingsState();
+  _MeetingsScreenState createState() => _MeetingsScreenState();
 }
 
-class _MeetingsState extends State<Meetings> {
+class _MeetingsScreenState extends State<MeetingsScreen> {
   bool _isLoading = true;
   late WebViewController _webViewController;
 

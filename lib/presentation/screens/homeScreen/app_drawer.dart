@@ -41,11 +41,14 @@ class _AppDrawerState extends State<AppDrawer> {
                   color: tertiaryColor,
                 ),
                 child: Center(
-                  child: Text(
-                    'Welcome, $_username!',
-                    style: const TextStyle(
-                      fontSize: 24.0,
-                      color: lightColor,
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      'Welcome, $_username!',
+                      style: const TextStyle(
+                        fontSize: 24.0,
+                        color: lightColor,
+                      ),
                     ),
                   ),
                 ),
@@ -65,9 +68,9 @@ class _AppDrawerState extends State<AppDrawer> {
                 });
                 // Handle meetings tile tapped
                 Get.to(
-                  () => const Meetings(),
+                  () => const MeetingsScreen(),
                   duration: const Duration(milliseconds: 600),
-                  transition: Transition.leftToRight,
+                  transition: Transition.rightToLeft,
                 );
               },
               tileColor: _selectedIndex == 0 ? Colors.red : null,
