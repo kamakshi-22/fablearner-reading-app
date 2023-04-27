@@ -42,6 +42,7 @@ export 'package:fablearner_app/presentation/screens/utilityScreens/forgotPasswor
 export 'package:fablearner_app/presentation/screens/utilityScreens/helpDesk/help_desk.dart';
 export 'package:fablearner_app/presentation/screens/utilityScreens/qrScanner/qr_scanner.dart';
 export 'package:fablearner_app/presentation/screens/utilityScreens/activitiesSlider/activities_slider.dart';
+export 'package:fablearner_app/presentation/screens/utilityScreens/meetings/meetings.dart';
 
 /* -------------------------------------------------------------------------- */
 /*                                   common                                   */

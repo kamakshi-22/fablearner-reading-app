@@ -8,6 +8,8 @@ CustomAppBar coursesAppBar(
     title: 'Fab Courses',
     showBackButton: false,
     centerTitle: false,
+    showLeadingIcon: true,
+    
     actions: [
       IconButton(
         onPressed: () {
@@ -22,6 +24,7 @@ CustomAppBar coursesAppBar(
         onPressed: () async {
           final prefs = await SharedPreferences.getInstance();
           await prefs.remove('token');
+          await prefs.remove('username');
           Get.offAllNamed(
             '/',
           );

@@ -9,6 +9,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Function()? onBackButtonPressed;
   final List<Widget>? actions;
   final bool centerTitle;
+  final bool showLeadingIcon;
 
   const CustomAppBar({
     Key? key,
@@ -17,6 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.onBackButtonPressed,
     this.actions,
     this.centerTitle = true,
+    this.showLeadingIcon = false,
   }) : super(key: key);
 
   @override
@@ -46,6 +48,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     size: 24,
                   ),
                   onPressed: onBackButtonPressed,
+                  splashColor: secondaryColor,
+                  splashRadius: 20,
+                ),
+              if (showLeadingIcon)
+                IconButton(
+                  padding: const EdgeInsets.only(),
+                  icon: const Icon(
+                    Icons.menu,
+                    color: lightColor,
+                    size: 24,
+                  ),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
                   splashColor: secondaryColor,
                   splashRadius: 20,
                 ),

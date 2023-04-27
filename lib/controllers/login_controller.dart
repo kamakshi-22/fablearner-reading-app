@@ -28,7 +28,6 @@ class LoginController extends GetxController with GetSingleTickerProviderStateMi
   final _passwordError = ''.obs;
   final _isLoading = false.obs;
   final _isPasswordVisible = false.obs;
-  final _previousUsernames = <String>[].obs;
   get searchController => null;
 
   /* Getters */
@@ -39,7 +38,6 @@ class LoginController extends GetxController with GetSingleTickerProviderStateMi
   RxString get passwordError => _passwordError;
   RxBool get isLoading => _isLoading;
   RxBool get isPasswordVisible => _isPasswordVisible;
-  List<String> get previousUsernames => _previousUsernames;
 
   /* -------------------------------------------------------------------------- */
   /*                                 constructor                                */
@@ -86,11 +84,6 @@ class LoginController extends GetxController with GetSingleTickerProviderStateMi
     _onPasswordError("");
 
     _isLoading.value = true;
-
-    // Add the entered username to the previousUsernames list
-    if (username.isNotEmpty && !_previousUsernames.contains(username)) {
-      _previousUsernames.add(username);
-    }
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       LoginApi.login(

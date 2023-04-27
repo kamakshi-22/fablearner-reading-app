@@ -54,6 +54,7 @@ class LoginApi {
         final token = data['token'] as String;
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', token);
+        await prefs.setString('username', username);
         onSuccess("Login successful and Token saved");
         loginController.toggleLoginForm();
         loginController.usernameController.clear();
