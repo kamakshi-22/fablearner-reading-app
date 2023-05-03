@@ -1,8 +1,5 @@
-import 'package:bordered_text/bordered_text.dart';
-import 'package:fablearner_app/constants/colors.dart';
-import 'package:fablearner_app/constants/styles.dart';
-import 'package:flutter/material.dart';
-
+import 'package:fablearner_app/exports/common_exports.dart';
+import 'package:fablearner_app/exports/presentation_exports.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool showBackButton;

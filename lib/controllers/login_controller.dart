@@ -1,9 +1,10 @@
 import 'package:fablearner_app/exports/business_exports.dart';
 import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
-/* Responsible for handling the state of the login screen and the login form */
-class LoginController extends GetxController with GetSingleTickerProviderStateMixin {
 
+/* Responsible for handling the state of the login screen and the login form */
+class LoginController extends GetxController
+    with GetSingleTickerProviderStateMixin {
   /* -------------------------------------------------------------------------- */
   /*                                  variables                                 */
   /* -------------------------------------------------------------------------- */
@@ -11,12 +12,12 @@ class LoginController extends GetxController with GetSingleTickerProviderStateMi
   /* toggle between login button and login form */
   bool _showLoginForm = false;
   bool get showLoginForm => _showLoginForm;
-  
+
   /* Animation controller for the login form */
   late AnimationController animationController;
   late Animation<double> heightFactorAnimation;
   bool loginButtonVisible = true;
-  
+
   /* WebViewController for forgot password screen */
   late final WebViewController controller;
 
@@ -56,9 +57,6 @@ class LoginController extends GetxController with GetSingleTickerProviderStateMi
         curve: Curves.easeInOut,
       ),
     );
-
-    /* WebViewController initialization */
-    //controller = WebViewController()..loadRequest(Uri.parse(ApiConfig.forgotPasswordUrl));
   }
 
   /* -------------------------------------------------------------------------- */
@@ -101,7 +99,7 @@ class LoginController extends GetxController with GetSingleTickerProviderStateMi
   /* Handle forgot password */
   void handleForgotPassword() {
     Get.to(
-      () => ForgotPassword(),
+      () => const ForgotPassword(),
       duration: const Duration(milliseconds: 800),
       transition: Transition.rightToLeft,
     );
@@ -118,27 +116,37 @@ class LoginController extends GetxController with GetSingleTickerProviderStateMi
 
   /* Callback function for login success */
   void _onSuccess(String message) {
+    if (kDebugMode) {
+      print("SUCCESS: Login Success $message");
+    }
     _isLoading.value = false;
     _responseText.value = '';
   }
 
   /* Callback function for username error */
   void _onUsernameError(String message) {
+    if (kDebugMode) {
+      print("ERROR: Login Failed $message");
+    }
     _usernameError.value = message;
     _isLoading.value = false;
   }
 
   /* Callback function for password error */
   void _onPasswordError(String message) {
+    if (kDebugMode) {
+      print("ERROR: Login Failed $message");
+    }
     _passwordError.value = message;
     _isLoading.value = false;
   }
 
   /* Callback function for login error */
   void _onLoginError(String message) {
+    if (kDebugMode) {
+      print("ERROR: Login Failed $message");
+    }
     _responseText.value = message;
     _isLoading.value = false;
   }
-
 }
-

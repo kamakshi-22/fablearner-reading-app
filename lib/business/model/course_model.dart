@@ -9,6 +9,39 @@ List<Course> courseFromJson(String str) => List<Course>.from(json.decode(str).ma
 String courseToJson(List<Course> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Course {
+    int id;
+    String name;
+    String slug;
+    String permalink;
+    String image;
+    DateTime dateCreated;
+    DateTime dateCreatedGmt;
+    DateTime dateModified;
+    DateTime dateModifiedGmt;
+    bool onSale;
+    String status;
+    String content;
+    String excerpt;
+    String duration;
+    int countStudents;
+    bool canFinish;
+    bool canRetake;
+    int ratakeCount;
+    int rataken;
+    bool rating;
+    int price;
+    String priceRendered;
+    int originPrice;
+    String originPriceRendered;
+    int salePrice;
+    String salePriceRendered;
+    List<dynamic> categories;
+    List<dynamic> tags;
+    Instructor instructor;
+    List<Section> sections;
+    CourseData courseData;
+    MetaData metaData;
+
     Course({
         required this.id,
         required this.name,
@@ -43,39 +76,6 @@ class Course {
         required this.courseData,
         required this.metaData,
     });
-
-    int id;
-    String name;
-    String slug;
-    String permalink;
-    String image;
-    DateTime dateCreated;
-    DateTime dateCreatedGmt;
-    DateTime dateModified;
-    DateTime dateModifiedGmt;
-    bool onSale;
-    String status;
-    String content;
-    String excerpt;
-    String duration;
-    int countStudents;
-    bool canFinish;
-    bool canRetake;
-    int ratakeCount;
-    int rataken;
-    bool rating;
-    int price;
-    String priceRendered;
-    int originPrice;
-    String originPriceRendered;
-    int salePrice;
-    String salePriceRendered;
-    List<dynamic> categories;
-    List<dynamic> tags;
-    Instructor instructor;
-    List<Section> sections;
-    CourseData courseData;
-    MetaData metaData;
 
     factory Course.fromJson(Map<String, dynamic> json) => Course(
         id: json["id"],
@@ -149,6 +149,13 @@ class Course {
 }
 
 class CourseData {
+    String graduation;
+    String status;
+    DateTime startTime;
+    dynamic endTime;
+    String expirationTime;
+    Result result;
+
     CourseData({
         required this.graduation,
         required this.status,
@@ -158,19 +165,12 @@ class CourseData {
         required this.result,
     });
 
-    String graduation;
-    String status;
-    DateTime startTime;
-    dynamic endTime;
-    DateTime expirationTime;
-    Result result;
-
     factory CourseData.fromJson(Map<String, dynamic> json) => CourseData(
         graduation: json["graduation"],
         status: json["status"],
         startTime: DateTime.parse(json["start_time"]),
         endTime: json["end_time"],
-        expirationTime: DateTime.parse(json["expiration_time"]),
+        expirationTime: json["expiration_time"],
         result: Result.fromJson(json["result"]),
     );
 
@@ -179,12 +179,19 @@ class CourseData {
         "status": status,
         "start_time": startTime.toIso8601String(),
         "end_time": endTime,
-        "expiration_time": expirationTime.toIso8601String(),
+        "expiration_time": expirationTime,
         "result": result.toJson(),
     };
 }
 
 class Result {
+    int result;
+    int pass;
+    int countItems;
+    int completedItems;
+    Items items;
+    String evaluateType;
+
     Result({
         required this.result,
         required this.pass,
@@ -194,15 +201,8 @@ class Result {
         required this.evaluateType,
     });
 
-    double result;
-    int pass;
-    int countItems;
-    int completedItems;
-    Items items;
-    String evaluateType;
-
     factory Result.fromJson(Map<String, dynamic> json) => Result(
-        result: json["result"]?.toDouble(),
+        result: json["result"],
         pass: json["pass"],
         countItems: json["count_items"],
         completedItems: json["completed_items"],
@@ -221,13 +221,13 @@ class Result {
 }
 
 class Items {
+    Lesson lesson;
+    Lesson quiz;
+
     Items({
         required this.lesson,
         required this.quiz,
     });
-
-    Lesson lesson;
-    Lesson quiz;
 
     factory Items.fromJson(Map<String, dynamic> json) => Items(
         lesson: Lesson.fromJson(json["lesson"]),
@@ -241,15 +241,15 @@ class Items {
 }
 
 class Lesson {
+    String completed;
+    String passed;
+    int total;
+
     Lesson({
         required this.completed,
         required this.passed,
         required this.total,
     });
-
-    String completed;
-    String passed;
-    int total;
 
     factory Lesson.fromJson(Map<String, dynamic> json) => Lesson(
         completed: json["completed"],
@@ -265,26 +265,26 @@ class Lesson {
 }
 
 class Instructor {
+    String avatar;
+    int id;
+    String name;
+    String description;
+    Social social;
+
     Instructor({
         required this.avatar,
-        this.id,
-        this.name,
-        this.description,
-        this.social,
+        required this.id,
+        required this.name,
+        required this.description,
+        required this.social,
     });
-
-    String avatar;
-    int? id;
-    String? name;
-    String? description;
-    Social? social;
 
     factory Instructor.fromJson(Map<String, dynamic> json) => Instructor(
         avatar: json["avatar"],
         id: json["id"],
         name: json["name"],
         description: json["description"],
-        social: json["social"] == null ? null : Social.fromJson(json["social"]),
+        social: Social.fromJson(json["social"]),
     );
 
     Map<String, dynamic> toJson() => {
@@ -292,22 +292,22 @@ class Instructor {
         "id": id,
         "name": name,
         "description": description,
-        "social": social?.toJson(),
+        "social": social.toJson(),
     };
 }
 
 class Social {
+    String facebook;
+    String twitter;
+    String youtube;
+    String linkedin;
+
     Social({
         required this.facebook,
         required this.twitter,
         required this.youtube,
         required this.linkedin,
     });
-
-    String facebook;
-    String twitter;
-    String youtube;
-    String linkedin;
 
     factory Social.fromJson(Map<String, dynamic> json) => Social(
         facebook: json["facebook"],
@@ -325,6 +325,33 @@ class Social {
 }
 
 class MetaData {
+    String lpDuration;
+    String lpBlockExpireDuration;
+    String lpBlockFinished;
+    String lpAllowCourseRepurchase;
+    String lpCourseRepurchaseOption;
+    String lpLevel;
+    String lpStudents;
+    String lpMaxStudents;
+    String lpRetakeCount;
+    String lpHasFinish;
+    String lpFeatured;
+    String lpFeaturedReview;
+    String lpExternalLinkBuyCourse;
+    String lpHideStudentsList;
+    String lpRegularPrice;
+    String lpSalePrice;
+    String lpSaleStart;
+    String lpSaleEnd;
+    String lpNoRequiredEnroll;
+    List<dynamic> lpRequirements;
+    List<dynamic> lpTargetAudiences;
+    List<dynamic> lpKeyFeatures;
+    List<dynamic> lpFaqs;
+    String lpCourseResult;
+    String lpPassingCondition;
+    String lpCourseAuthor;
+
     MetaData({
         required this.lpDuration,
         required this.lpBlockExpireDuration,
@@ -339,6 +366,7 @@ class MetaData {
         required this.lpFeatured,
         required this.lpFeaturedReview,
         required this.lpExternalLinkBuyCourse,
+        required this.lpHideStudentsList,
         required this.lpRegularPrice,
         required this.lpSalePrice,
         required this.lpSaleStart,
@@ -352,32 +380,6 @@ class MetaData {
         required this.lpPassingCondition,
         required this.lpCourseAuthor,
     });
-
-    String lpDuration;
-    String lpBlockExpireDuration;
-    String lpBlockFinished;
-    String lpAllowCourseRepurchase;
-    String lpCourseRepurchaseOption;
-    String lpLevel;
-    String lpStudents;
-    String lpMaxStudents;
-    String lpRetakeCount;
-    String lpHasFinish;
-    String lpFeatured;
-    String lpFeaturedReview;
-    String lpExternalLinkBuyCourse;
-    String lpRegularPrice;
-    String lpSalePrice;
-    String lpSaleStart;
-    String lpSaleEnd;
-    String lpNoRequiredEnroll;
-    List<String> lpRequirements;
-    List<String> lpTargetAudiences;
-    List<String> lpKeyFeatures;
-    List<List<String>> lpFaqs;
-    String lpCourseResult;
-    String lpPassingCondition;
-    String lpCourseAuthor;
 
     factory MetaData.fromJson(Map<String, dynamic> json) => MetaData(
         lpDuration: json["_lp_duration"],
@@ -393,15 +395,16 @@ class MetaData {
         lpFeatured: json["_lp_featured"],
         lpFeaturedReview: json["_lp_featured_review"],
         lpExternalLinkBuyCourse: json["_lp_external_link_buy_course"],
+        lpHideStudentsList: json["_lp_hide_students_list"],
         lpRegularPrice: json["_lp_regular_price"],
         lpSalePrice: json["_lp_sale_price"],
         lpSaleStart: json["_lp_sale_start"],
         lpSaleEnd: json["_lp_sale_end"],
         lpNoRequiredEnroll: json["_lp_no_required_enroll"],
-        lpRequirements: List<String>.from(json["_lp_requirements"].map((x) => x)),
-        lpTargetAudiences: List<String>.from(json["_lp_target_audiences"].map((x) => x)),
-        lpKeyFeatures: List<String>.from(json["_lp_key_features"].map((x) => x)),
-        lpFaqs: List<List<String>>.from(json["_lp_faqs"].map((x) => List<String>.from(x.map((x) => x)))),
+        lpRequirements: List<dynamic>.from(json["_lp_requirements"].map((x) => x)),
+        lpTargetAudiences: List<dynamic>.from(json["_lp_target_audiences"].map((x) => x)),
+        lpKeyFeatures: List<dynamic>.from(json["_lp_key_features"].map((x) => x)),
+        lpFaqs: List<dynamic>.from(json["_lp_faqs"].map((x) => x)),
         lpCourseResult: json["_lp_course_result"],
         lpPassingCondition: json["_lp_passing_condition"],
         lpCourseAuthor: json["_lp_course_author"],
@@ -421,6 +424,7 @@ class MetaData {
         "_lp_featured": lpFeatured,
         "_lp_featured_review": lpFeaturedReview,
         "_lp_external_link_buy_course": lpExternalLinkBuyCourse,
+        "_lp_hide_students_list": lpHideStudentsList,
         "_lp_regular_price": lpRegularPrice,
         "_lp_sale_price": lpSalePrice,
         "_lp_sale_start": lpSaleStart,
@@ -429,7 +433,7 @@ class MetaData {
         "_lp_requirements": List<dynamic>.from(lpRequirements.map((x) => x)),
         "_lp_target_audiences": List<dynamic>.from(lpTargetAudiences.map((x) => x)),
         "_lp_key_features": List<dynamic>.from(lpKeyFeatures.map((x) => x)),
-        "_lp_faqs": List<dynamic>.from(lpFaqs.map((x) => List<dynamic>.from(x.map((x) => x)))),
+        "_lp_faqs": List<dynamic>.from(lpFaqs.map((x) => x)),
         "_lp_course_result": lpCourseResult,
         "_lp_passing_condition": lpPassingCondition,
         "_lp_course_author": lpCourseAuthor,
@@ -437,6 +441,14 @@ class MetaData {
 }
 
 class Section {
+    int id;
+    String title;
+    int courseId;
+    String description;
+    String order;
+    int percent;
+    List<Item> items;
+
     Section({
         required this.id,
         required this.title,
@@ -447,21 +459,13 @@ class Section {
         required this.items,
     });
 
-    int id;
-    String title;
-    int courseId;
-    String description;
-    String order;
-    double percent;
-    List<Item> items;
-
     factory Section.fromJson(Map<String, dynamic> json) => Section(
         id: json["id"],
         title: json["title"],
         courseId: json["course_id"],
         description: json["description"],
         order: json["order"],
-        percent: json["percent"]?.toDouble(),
+        percent: json["percent"],
         items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
     );
 
@@ -477,6 +481,15 @@ class Section {
 }
 
 class Item {
+    int id;
+    Type type;
+    String title;
+    bool preview;
+    String duration;
+    Graduation graduation;
+    Status status;
+    bool locked;
+
     Item({
         required this.id,
         required this.type,
@@ -488,21 +501,12 @@ class Item {
         required this.locked,
     });
 
-    int id;
-    Type type;
-    String title;
-    bool preview;
-    Duration duration;
-    Graduation graduation;
-    Status status;
-    bool locked;
-
     factory Item.fromJson(Map<String, dynamic> json) => Item(
         id: json["id"],
         type: typeValues.map[json["type"]]!,
         title: json["title"],
         preview: json["preview"],
-        duration: durationValues.map[json["duration"]]!,
+        duration: json["duration"],
         graduation: graduationValues.map[json["graduation"]]!,
         status: statusValues.map[json["status"]]!,
         locked: json["locked"],
@@ -513,43 +517,29 @@ class Item {
         "type": typeValues.reverse[type],
         "title": title,
         "preview": preview,
-        "duration": durationValues.reverse[duration],
+        "duration": duration,
         "graduation": graduationValues.reverse[graduation],
         "status": statusValues.reverse[status],
         "locked": locked,
     };
 }
 
-enum Duration { EMPTY, THE_30_MINS, THE_50_MINS, THE_40_MINS, THE_20_MINS, THE_10_MINS, zero }
-
-final durationValues = EnumValues({
-    "": Duration.EMPTY,
-    "10 mins": Duration.THE_10_MINS,
-    "20 mins": Duration.THE_20_MINS,
-    "30 mins": Duration.THE_30_MINS,
-    "40 mins": Duration.THE_40_MINS,
-    "50 mins": Duration.THE_50_MINS
-});
-
-enum Graduation { PASSED, EMPTY }
+enum Graduation { PASSED }
 
 final graduationValues = EnumValues({
-    "": Graduation.EMPTY,
     "passed": Graduation.PASSED
 });
 
-enum Status { COMPLETED, EMPTY }
+enum Status { COMPLETED }
 
 final statusValues = EnumValues({
-    "completed": Status.COMPLETED,
-    "": Status.EMPTY
+    "completed": Status.COMPLETED
 });
 
-enum Type { LP_LESSON, LP_QUIZ }
+enum Type { LP_LESSON }
 
 final typeValues = EnumValues({
-    "lp_lesson": Type.LP_LESSON,
-    "lp_quiz": Type.LP_QUIZ
+    "lp_lesson": Type.LP_LESSON
 });
 
 class EnumValues<T> {

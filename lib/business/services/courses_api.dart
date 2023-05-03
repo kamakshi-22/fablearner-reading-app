@@ -16,9 +16,11 @@ class CoursesApi {
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body) as List<dynamic>;
       final courses = jsonData.map((json) => Course.fromJson(json)).toList();
+      print("courses: $courses");
       return courses;
     } else {
       throw Exception("Failed to load courses");
+      print("course api error");
     }
   }
 }

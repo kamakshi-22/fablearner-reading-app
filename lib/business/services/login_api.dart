@@ -50,23 +50,37 @@ class LoginApi {
     try {
       final response = await loginApiCall(username, password);
       if (response.statusCode == 200) {
+        /* Save token and username in shared preferences */
         final data = jsonDecode(response.body);
         final token = data['token'] as String;
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', token);
         await prefs.setString('username', username);
+
+        /* Login Successful */
         onSuccess("Login successful and Token saved");
+
+        /* Clear the login form */
         loginController.toggleLoginForm();
         loginController.usernameController.clear();
         loginController.passwordController.clear();
+
+        /* Navigate to Home Screen */
         Get.to(() => HomeScreen(token: token),
             duration: const Duration(milliseconds: 800),
             transition: Transition.rightToLeft);
       } else {
+        /* Login Failed */
         onLoginError("Wrong username or password");
+        if (kDebugMode) {
+          print("ERROR: Login Failed ${response.statusCode}");
+        }
       }
     } catch (e) {
       onLoginError(e.toString());
+      if (kDebugMode) {
+        print("ERROR: Login Failed $e");
+      }
     }
   }
 }

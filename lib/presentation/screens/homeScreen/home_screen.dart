@@ -17,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final appController = Get.put(AppController(token: widget.token));
+    print('Loaded Courses ${appController.courseList.length}');
     List<Widget> pages = [
       // Create a list of pages to be shown in the body of the screen
       CoursesScreen(appController: appController, token: widget.token),

@@ -66,6 +66,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 setState(() {
                   _selectedIndex = 0; // update selected index
                 });
+                Navigator.pop(context);
                 // Handle meetings tile tapped
                 Get.to(
                   () => const MeetingsScreen(),

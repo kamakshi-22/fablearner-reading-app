@@ -25,69 +25,73 @@ class _CoursesScreenState extends State<CoursesScreen> {
           ? const Center(
               child: SpinKitThreeBounceAnimation(),
             )
-          : Column(
-              children: [
-                if (widget.appController.savedLessonId != null && _showCard)
-                  savedLessonCard(),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: widget.appController.courseList.length,
-                    itemBuilder: (context, index) {
-                      final course = widget.appController.courseList[index];
-                      return courseCard(course);
-                    },
+          : (widget.appController.error.value != null)
+              ? Center(
+                  child: Text(
+                    widget.appController.error.value!,
+                    style: AppStyles.errorTextStyle,
                   ),
+                )
+              : Column(
+                  children: [
+                    if (widget.appController.savedLessonId != null && _showCard)
+                      savedLessonCard(),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: widget.appController.courseList.length,
+                        itemBuilder: (context, index) {
+                          final course = widget.appController.courseList[index];
+                          return courseCard(course);
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
     );
   }
 
   SizedBox courseCard(Course course) {
     return SizedBox(
-                      height: 200,
-                      width: 200,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 8),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12.0),
+      height: 200,
+      width: 200,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12.0),
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(course.image),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: ListTile(
+                title: Text(course.name, style: AppStyles.cardTitleStyle),
+                trailing: Text(
+                  '${course.sections.where((section) => section.percent == 100).length}/${course.sections.length}',
+                  style: AppStyles.cardTitleStyle.copyWith(
+                    color: successColor,
+                  ),
+                ),
+                onTap: () async {
+                  Get.to(
+                      () => SectionsScreen(
+                            token: widget.token,
+                            courseId: course.id,
                           ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: NetworkImage(course.image),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              child: ListTile(
-                                title: Text(course.name,
-                                    style: AppStyles.cardTitleStyle),
-                                trailing: Text(
-                                  '${course.sections.where((section) => section.percent == 100).length}/${course.sections.length}',
-                                  style: AppStyles.cardTitleStyle.copyWith(
-                                    color: successColor,
-                                  ),
-                                ),
-                                onTap: () async {
-                                  Get.to(
-                                      () => SectionsScreen(
-                                            token: widget.token,
-                                            courseId: course.id,
-                                            //appController:appController,
-                                          ),
-                                      duration: 800.milliseconds,
-                                      transition: Transition.rightToLeft);
-                                },
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
+                      duration: 800.milliseconds,
+                      transition: Transition.rightToLeft);
+                },
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   GestureDetector savedLessonCard() {

@@ -42,7 +42,10 @@ class AppController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    print('token: $token');
+    print("loading courses");
     loadCourses();
+    print("loaded courses: $courseList");
     getSavedLesson();
     print("SAVED LESSON ID $savedLessonId");
   }
@@ -52,15 +55,18 @@ class AppController extends GetxController {
   /* -------------------------------------------------------------------------- */
 
   Future<void> loadCourses() async {
+    print("running loadCourses");
     try {
       isLoading.value = true;
       final loadedCourses = await CoursesApi.getCourses(token);
+      if (kDebugMode) print("COURSES: $loadedCourses");
       update();
       courseList.assignAll(loadedCourses);
       isLoading.value = false;
     } catch (e) {
       isLoading.value = false;
       error.value = e.toString();
+      print("Error in loading courses: $e");
     }
     return;
   }

@@ -28,7 +28,7 @@ class _MeetingsScreenState extends State<MeetingsScreen> {
         child: Stack(
           children: [
             WebView(
-              initialUrl: 'https://fablearner.online/Meetings/',
+              initialUrl: 'https://app.fablearner.online/meeting',
               javascriptMode: JavascriptMode.unrestricted,
               onPageFinished: (_) {
                 setState(() {

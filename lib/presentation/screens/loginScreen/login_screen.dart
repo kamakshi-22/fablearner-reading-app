@@ -1,11 +1,10 @@
-import '../../../exports/business_exports.dart';
-import 'login_form.dart';
+
+import 'package:fablearner_app/exports/business_exports.dart';
 import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
-
+import 'login_form.dart';
 class LoginScreen extends StatefulWidget {
-
-  LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -21,7 +20,9 @@ class _LoginScreenState extends State<LoginScreen> {
     NotificationServices().firebaseInit(context);
     NotificationServices().setupInteractMessage(context);
     NotificationServices().getDeviceToken().then((value) {
-      print(value);
+      if (kDebugMode) {
+        print('device token: $value');
+      }
     });
   }
 

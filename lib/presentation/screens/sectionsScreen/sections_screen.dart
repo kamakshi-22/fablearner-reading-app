@@ -78,7 +78,6 @@ class _SectionsScreenState extends State<SectionsScreen> {
                             ),
                             child: InkWell(
                               onTap: () async {
-                                
                                 Get.to(
                                   () => LessonsScreen(
                                     token: widget.token,
@@ -123,7 +122,8 @@ class _SectionsScreenState extends State<SectionsScreen> {
                                           ),
                                           const SizedBox(width: 8),
                                           Text(
-                                            "${section.percent.toPrecision(1)} %",
+                                            "${section.percent} %",
+                                            //toPrecision(2),
                                             style: AppStyles.indicatorStyle,
                                           ),
                                         ],

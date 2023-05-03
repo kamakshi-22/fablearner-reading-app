@@ -4,7 +4,7 @@ class ApiConfig {
   static const String coursesUrl = "$baseUrl/wp-json/learnpress/v1";
   static const String activitiesUrl = "$baseUrl/wp-json/learnpress/v1/courses/1191";
   static const String lessonsUrl = "$baseUrl/wp-json/learnpress/v1/lessons/";
-  static const String forgotPasswordUrl = "$baseUrl/wp-login.php?action=lostpassword";
+  static const String forgotPasswordUrl = "$baseUrl/wp-json/learnpress/v1/users/reset-password?user_login=";
   static const String quizUrl = "$baseUrl/wp-json/learnpress/v1/quizzes/";
   static const String bgImageUrl = "$baseUrl/wp-content/uploads/2023/03/app-login-screen.jpg";
 }

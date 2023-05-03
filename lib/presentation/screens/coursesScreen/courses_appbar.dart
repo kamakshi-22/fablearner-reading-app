@@ -9,7 +9,6 @@ CustomAppBar coursesAppBar(
     showBackButton: false,
     centerTitle: false,
     showLeadingIcon: true,
-    
     actions: [
       IconButton(
         onPressed: () {
@@ -22,14 +21,18 @@ CustomAppBar coursesAppBar(
         icon: const Icon(Icons.logout),
         splashRadius: 20,
         onPressed: () async {
+
+          /* Remove saved token and username */
           final prefs = await SharedPreferences.getInstance();
           await prefs.remove('token');
           await prefs.remove('username');
+
+          /* Navigate to login screen */
           Get.offAllNamed(
             '/',
           );
           Get.to(
-            LoginScreen(),
+            const LoginScreen(),
             duration: const Duration(milliseconds: 300),
             transition: Transition.leftToRightWithFade,
           );

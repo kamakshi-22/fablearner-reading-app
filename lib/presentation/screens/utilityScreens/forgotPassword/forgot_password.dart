@@ -1,20 +1,18 @@
 import 'package:fablearner_app/exports/common_exports.dart';
 import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:fablearner_app/exports/business_exports.dart';
-import 'package:http/http.dart' as http;
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
 
   @override
-  _ForgotPasswordState createState() => _ForgotPasswordState();
+  ForgotPasswordState createState() => ForgotPasswordState();
 }
 
-class _ForgotPasswordState extends State<ForgotPassword> {
+class ForgotPasswordState extends State<ForgotPassword> {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   bool _isLoading = false;
-  String? _error;
 
   @override
   void dispose() {
@@ -25,33 +23,36 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Future<void> _resetPassword() async {
     setState(() {
       _isLoading = true;
-      _error = null;
     });
 
     final username = _usernameController.text.trim();
-    final url = Uri.parse(
-        'https://app.fablearner.online/wp-json/learnpress/v1/users/reset-password?user_login=$username');
+    final isResetSuccessful = await ForgotPasswordApi.resetPassword(username);
 
-    try {
-      final response = await http.post(url);
-      if (response.statusCode == 200) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: successColor,
-            content: Text('Password reset email sent to $username')));
-      } else {
-        setState(() {
-          _error = 'Failed to reset password';
-        });
-      }
-    } catch (e) {
-      setState(() {
-        _error = 'Failed to reset password: ${e.toString()}';
-      });
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
+    if (isResetSuccessful) {
+      ScaffoldMessenger.of(Get.context!).showSnackBar(
+        SnackBar(
+          backgroundColor: successColor,
+          content: Text(
+            'Password reset email sent to $username.',
+            textAlign: TextAlign.center,
+          ),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(Get.context!).showSnackBar(
+        const SnackBar(
+          backgroundColor: warningColor,
+          content: Text(
+            'Failed to reset password. \n Check your username or email.',
+            textAlign: TextAlign.center,
+          ),
+        ),
+      );
     }
+
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   @override
@@ -129,24 +130,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         }
                       },
                 child: Center(
-                  child: Text(
-                    _isLoading
-                        ? 'Resetting Password...'
-                        : 'Click to Reset Password',
-                    style: AppStyles.forgotPasswordStyle,
-                  ),
+                  child: _isLoading
+                      ? const SpinKitThreeBounce(
+                          color: primaryColor,
+                          size: 24,
+                        )
+                      : Text(
+                          'Click to Reset Password',
+                          style: AppStyles.forgotPasswordStyle,
+                        ),
                 ),
               ),
-              if (_error != null)
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: Center(
-                    child: Text(
-                      _error!,
-                      style: const TextStyle(color: primaryColor),
-                    ),
-                  ),
-                ),
             ],
           ),
         ),

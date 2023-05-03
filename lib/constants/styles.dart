@@ -2,16 +2,22 @@ import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
 
 class AppStyles {
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    error                                   */
+  /* -------------------------------------------------------------------------- */
   static TextStyle errorTextStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-      color: Colors.red,
+      color: warningColor,
       letterSpacing: 1,
       fontWeight: FontWeight.w800,
-      fontSize: 16,
+      fontSize: 12,
     ),
   );
 
-  /* --------------------- App Bar  --------------------------*/
+  /* -------------------------------------------------------------------------- */
+  /*                                   appbar                                   */
+  /* -------------------------------------------------------------------------- */
 
   /* App Bar Title */
   static TextStyle appBarTitleStyle = GoogleFonts.abrilFatface(
@@ -37,7 +43,9 @@ class AppStyles {
     ),
   );
 
-  /* --------------------- Buttons  --------------------------*/
+  /* -------------------------------------------------------------------------- */
+  /*                                   Buttons                                  */
+  /* -------------------------------------------------------------------------- */
 
   /* Button Design Styles */
   static ButtonStyle primaryButtonStyle = ElevatedButton.styleFrom(
@@ -79,6 +87,10 @@ class AppStyles {
       fontSize: 16,
     ),
   );
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    card                                    */
+  /* -------------------------------------------------------------------------- */
 
   static TextStyle cardTitleStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
@@ -185,12 +197,12 @@ class AppStyles {
     ),
   );
 
-  static TextStyle formErrorStyle = GoogleFonts.openSans(
-    textStyle: const TextStyle(
-      color: warningColor,
-      letterSpacing: 1,
-      fontWeight: FontWeight.w600,
-      fontStyle: FontStyle.italic,
-    ),
-  );
+  // static TextStyle formErrorStyle = GoogleFonts.openSans(
+  //   textStyle: const TextStyle(
+  //     color: warningColor,
+  //     letterSpacing: 1,
+  //     fontWeight: FontWeight.w600,
+  //     fontStyle: FontStyle.italic,
+  //   ),
+  // );
 }

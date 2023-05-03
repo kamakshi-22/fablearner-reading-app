@@ -8,7 +8,6 @@ class LoginScreenForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RxString selectedUsername = ''.obs;
     return Form(
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 32),
@@ -85,7 +84,10 @@ class LoginScreenForm extends StatelessWidget {
               ),
               Obx(() {
                 return loginController.isLoading.value
-                    ? const SpinKitThreeBounceAnimation()
+                    ? const SpinKitThreeBounce(
+                        color: primaryColor,
+                        size: 24,
+                      )
                     : GestureDetector(
                         onTap: () => loginController.handleLogin(context),
                         child: Text(
@@ -100,7 +102,7 @@ class LoginScreenForm extends StatelessWidget {
               Obx(() {
                 return Text(
                   loginController.responseText.value,
-                  style: AppStyles.formErrorStyle,
+                  style: AppStyles.errorTextStyle,
                 );
               }),
               const SizedBox(
