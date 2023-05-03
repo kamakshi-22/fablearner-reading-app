@@ -2,7 +2,6 @@ import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
 
 class AppStyles {
-
   /* -------------------------------------------------------------------------- */
   /*                                    error                                   */
   /* -------------------------------------------------------------------------- */
@@ -21,10 +20,10 @@ class AppStyles {
 
   /* App Bar Title */
   static TextStyle appBarTitleStyle = GoogleFonts.abrilFatface(
-      textStyle: const TextStyle(
+      textStyle: TextStyle(
     color: primaryColor,
     letterSpacing: 2,
-    fontSize: 28,
+    fontSize: MediaQuery.of(Get.context!).size.width * 0.06,
     fontWeight: FontWeight.w600,
     decoration: TextDecoration.none,
     decorationColor: secondaryColor,
@@ -34,14 +33,14 @@ class AppStyles {
   /*                                  Subtitle                                  */
   /* -------------------------------------------------------------------------- */
 
-  static TextStyle subtitleStyle = GoogleFonts.openSans(
-    textStyle: const TextStyle(
-      color: lightColor,
-      letterSpacing: 1,
-      fontWeight: FontWeight.w600,
-      fontSize: 18,
-    ),
-  );
+  // static TextStyle subtitleStyle = GoogleFonts.openSans(
+  //   textStyle: const TextStyle(
+  //     color: lightColor,
+  //     letterSpacing: 1,
+  //     fontWeight: FontWeight.w600,
+  //     fontSize: 18,
+  //   ),
+  // );
 
   /* -------------------------------------------------------------------------- */
   /*                                   Buttons                                  */

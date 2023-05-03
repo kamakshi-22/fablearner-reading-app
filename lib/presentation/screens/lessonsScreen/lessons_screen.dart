@@ -41,12 +41,18 @@ class _LessonsScreenState extends State<LessonsScreen> {
           },
           actions: [
             IconButton(
+              alignment: Alignment.center,
               onPressed: () async {
                 setState(() {});
                 await appController.loadCourses();
                 setState(() {});
               },
-              icon: const Icon(Icons.refresh),
+              icon: const Icon(
+                Icons.refresh,
+                color: lightColor,
+                size: 24,
+              ),
+              splashColor: tertiaryColor,
               splashRadius: 20,
             ),
           ]),
@@ -55,7 +61,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
         builder: (controller) {
           if (controller.isLoading.value) {
             // Display a circular progress indicator while loading data
-            return const SpinKitThreeBounceAnimation();
+            return const LoadingAnimation();
           } else {
             final section = sections
                 .firstWhere((section) => section.id == widget.sectionId);

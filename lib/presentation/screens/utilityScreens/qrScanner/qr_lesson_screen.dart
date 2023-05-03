@@ -31,7 +31,7 @@ class _QRLessonScreenState extends State<QRLessonScreen> {
           if (isLoading.value ||
               error.value != '' ||
               appController.isLoading.value) {
-            return const SpinKitThreeBounceAnimation();
+            return const LoadingAnimation();
           } else {
             return Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -42,7 +42,7 @@ class _QRLessonScreenState extends State<QRLessonScreen> {
                       if (appController.isFinishing.value) {
                         return Row(
                             mainAxisAlignment: MainAxisAlignment.end,
-                            children: const [SpinKitThreeBounceAnimation()]);
+                            children: const [LoadingAnimation()]);
                       } else {
                         return ElevatedButton(
                           style: lessonFinished.value
@@ -191,7 +191,7 @@ class _QRLessonScreenState extends State<QRLessonScreen> {
         bufferedColor: successColor,
       ),
       placeholder: const Center(
-        child: SpinKitThreeBounceAnimation(),
+        child: LoadingAnimation(),
       ),
       errorBuilder: (context, errorMessage) {
         return Center(

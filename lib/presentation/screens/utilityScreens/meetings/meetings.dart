@@ -39,7 +39,7 @@ class _MeetingsScreenState extends State<MeetingsScreen> {
                 _webViewController = controller;
               },
             ),
-            if (_isLoading) const SpinKitThreeBounceAnimation(),
+            if (_isLoading) const LoadingAnimation(),
           ],
         ),
       ),

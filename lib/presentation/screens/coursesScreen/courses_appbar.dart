@@ -11,33 +11,20 @@ CustomAppBar coursesAppBar(
     showLeadingIcon: true,
     actions: [
       IconButton(
+        alignment: Alignment.center,
         onPressed: () {
           appController.loadCourses();
         },
-        icon: const Icon(Icons.refresh),
+        icon: const Icon(
+          Icons.refresh,
+          color: lightColor,
+          size: 24,
+        ),
+        splashColor: tertiaryColor,
         splashRadius: 20,
       ),
-      IconButton(
-        icon: const Icon(Icons.logout),
-        splashRadius: 20,
-        onPressed: () async {
 
-          /* Remove saved token and username */
-          final prefs = await SharedPreferences.getInstance();
-          await prefs.remove('token');
-          await prefs.remove('username');
-
-          /* Navigate to login screen */
-          Get.offAllNamed(
-            '/',
-          );
-          Get.to(
-            const LoginScreen(),
-            duration: const Duration(milliseconds: 300),
-            transition: Transition.leftToRightWithFade,
-          );
-        },
-      ),
+      /* notifications icon */
     ],
   );
 }

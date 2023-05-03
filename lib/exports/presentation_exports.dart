@@ -47,7 +47,7 @@ export 'package:fablearner_app/presentation/screens/utilityScreens/meetings/meet
 /* -------------------------------------------------------------------------- */
 /*                                   common                                   */
 /* -------------------------------------------------------------------------- */
-export 'package:fablearner_app/presentation/common/save_screen.dart';
+export 'package:fablearner_app/presentation/screens/utilityScreens/saveScreen/save_screen.dart';
 
 
 /* -------------------------------------------------------------------------- */

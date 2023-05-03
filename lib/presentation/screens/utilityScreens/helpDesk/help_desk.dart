@@ -20,7 +20,7 @@ class _HelpDeskState extends State<HelpDesk> {
         child: Stack(
           children: [
             WebView(
-              initialUrl: 'https://fablearner.online/helpdesk/',
+              initialUrl: 'https://app.fablearner.online/helpdesk',
               javascriptMode: JavascriptMode.unrestricted,
               onPageFinished: (_) {
                 setState(() {
@@ -31,10 +31,12 @@ class _HelpDeskState extends State<HelpDesk> {
                 _webViewController = controller;
               },
             ),
-            if (_isLoading) const SpinKitThreeBounceAnimation(),
+            if (_isLoading) const LoadingAnimation(),
           ],
         ),
       ),
     );
   }
 }
+
+

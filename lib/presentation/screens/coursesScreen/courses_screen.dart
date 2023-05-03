@@ -23,7 +23,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
     return Obx(
       () => widget.appController.isLoading.value
           ? const Center(
-              child: SpinKitThreeBounceAnimation(),
+              child: LoadingAnimation(),
             )
           : (widget.appController.error.value != null)
               ? Center(

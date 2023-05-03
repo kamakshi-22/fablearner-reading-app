@@ -5,12 +5,11 @@ class AppDrawer extends StatefulWidget {
   const AppDrawer({Key? key}) : super(key: key);
 
   @override
-  _AppDrawerState createState() => _AppDrawerState();
+  AppDrawerState createState() => AppDrawerState();
 }
 
-class _AppDrawerState extends State<AppDrawer> {
+class AppDrawerState extends State<AppDrawer> {
   String _username = '';
-  int _selectedIndex = 0;
 
   @override
   void initState() {
@@ -29,52 +28,107 @@ class _AppDrawerState extends State<AppDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      width: MediaQuery.of(context).size.width * 0.6,
       child: Container(
         color: secondaryColor,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             SizedBox(
-              height: 150.0,
+              height: MediaQuery.of(Get.context!).size.height * 0.18,
               child: DrawerHeader(
                 decoration: const BoxDecoration(
                   color: tertiaryColor,
                 ),
-                child: Center(
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      'Welcome, $_username!',
-                      style: const TextStyle(
-                        fontSize: 24.0,
-                        color: lightColor,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const CircleAvatar(
+                      radius: 18.0,
+                      backgroundColor: lightColor,
+                      child: Icon(
+                        Icons.person_outline,
+                        color: secondaryColor,
+                        size: 24.0,
                       ),
                     ),
-                  ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        _username.toUpperCase(),
+                        style: const TextStyle(
+                          fontSize: 18.0,
+                          color: lightColor,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
             ListTile(
-              title: const Text(
-                'Meetings',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  color: lightColor,
+              leading: const Icon(
+                Icons.meeting_room_outlined,
+                color: lightColor,
+              ),
+              title: Container(
+                padding: EdgeInsets.zero,
+                child: const Text(
+                  'Weekly Meetings',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: lightColor,
+                  ),
                 ),
               ),
               onTap: () {
-                setState(() {
-                  _selectedIndex = 0; // update selected index
-                });
+                /* Close the drawer */
                 Navigator.pop(context);
-                // Handle meetings tile tapped
+
+                /* Navigate to meetings screen */
                 Get.to(
                   () => const MeetingsScreen(),
                   duration: const Duration(milliseconds: 600),
                   transition: Transition.rightToLeft,
                 );
               },
-              tileColor: _selectedIndex == 0 ? Colors.red : null,
+            ),
+            const Divider(
+              color: lightColor,
+              thickness: 1.0,
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.logout_outlined,
+                color: lightColor,
+              ),
+              title: Container(
+                padding: EdgeInsets.zero,
+                child: const Text(
+                  'Logout',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: lightColor,
+                  ),
+                ),
+              ),
+              onTap: () async {
+                /* Remove saved token and username */
+                final prefs = await SharedPreferences.getInstance();
+                await prefs.remove('token');
+                await prefs.remove('username');
+
+                /* Navigate to login screen */
+                Get.offAllNamed(
+                  '/',
+                );
+                Get.to(
+                  const LoginScreen(),
+                  duration: const Duration(milliseconds: 300),
+                  transition: Transition.leftToRightWithFade,
+                );
+              },
             ),
           ],
         ),
@@ -82,3 +136,26 @@ class _AppDrawerState extends State<AppDrawer> {
     );
   }
 }
+
+
+
+/* IconButton(
+        icon: const Icon(Icons.logout),
+        splashRadius: 20,
+        onPressed: () async {
+          /* Remove saved token and username */
+          final prefs = await SharedPreferences.getInstance();
+          await prefs.remove('token');
+          await prefs.remove('username');
+
+          /* Navigate to login screen */
+          Get.offAllNamed(
+            '/',
+          );
+          Get.to(
+            const LoginScreen(),
+            duration: const Duration(milliseconds: 300),
+            transition: Transition.leftToRightWithFade,
+          );
+        },
+      ), */

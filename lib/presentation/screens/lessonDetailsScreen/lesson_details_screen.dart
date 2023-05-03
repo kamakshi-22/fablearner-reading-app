@@ -31,7 +31,10 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
           if (isLoading.value ||
               error.value != '' ||
               appController.isLoading.value) {
-            return const SpinKitThreeBounceAnimation();
+            return const SpinKitThreeBounce(
+                color: primaryColor,
+                size: 24,
+              );
           } else {
             return Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -42,7 +45,10 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
                       if (appController.isFinishing.value) {
                         return Row(
                             mainAxisAlignment: MainAxisAlignment.end,
-                            children: const [SpinKitThreeBounceAnimation()]);
+                            children: const [SpinKitThreeBounce(
+                color: primaryColor,
+                size: 24,
+              ),]);
                       } else {
                         return ElevatedButton(
                           style: lessonFinished.value
@@ -226,7 +232,10 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
         bufferedColor: successColor,
       ),
       placeholder: const Center(
-        child: SpinKitThreeBounceAnimation(),
+        child: SpinKitThreeBounce(
+                color: primaryColor,
+                size: 24,
+              ),
       ),
       errorBuilder: (context, errorMessage) {
         return Center(

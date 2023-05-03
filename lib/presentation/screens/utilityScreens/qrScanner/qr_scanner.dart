@@ -34,7 +34,7 @@ class QrScanner extends StatelessWidget {
                     ),
                     if (controller.scanning)
                       const Center(
-                        child: SpinKitThreeBounceAnimation(),
+                        child: LoadingAnimation(),
                       ),
                     if (controller.error.isNotEmpty)
                       Center(

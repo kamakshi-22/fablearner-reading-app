@@ -42,12 +42,8 @@ class AppController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    print('token: $token');
-    print("loading courses");
     loadCourses();
-    print("loaded courses: $courseList");
     getSavedLesson();
-    print("SAVED LESSON ID $savedLessonId");
   }
 
   /* -------------------------------------------------------------------------- */
@@ -55,7 +51,9 @@ class AppController extends GetxController {
   /* -------------------------------------------------------------------------- */
 
   Future<void> loadCourses() async {
-    print("running loadCourses");
+    if (kDebugMode) {
+      print("APPCONTROLLER: loadCourses()");
+    }
     try {
       isLoading.value = true;
       final loadedCourses = await CoursesApi.getCourses(token);
@@ -66,7 +64,9 @@ class AppController extends GetxController {
     } catch (e) {
       isLoading.value = false;
       error.value = e.toString();
-      print("Error in loading courses: $e");
+      if (kDebugMode) {
+        print("ERROR: Error in loading courses: $e");
+      }
     }
     return;
   }
@@ -74,6 +74,7 @@ class AppController extends GetxController {
   Future<int?> getSavedLesson() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     savedLessonId = prefs.getInt('currentLessonId');
+    return null;
   }
 
   void getCourseDetailsByLessonId(int? lessonId) {

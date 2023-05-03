@@ -29,7 +29,8 @@ class AppBottomNavBar extends StatelessWidget {
   AppBottomNavBar({
     Key? key,
     required this.token,
-    required this.onTabChanged, required this.selectedTabIndex,
+    required this.onTabChanged,
+    required this.selectedTabIndex,
   }) : super(key: key);
 
   @override
@@ -43,7 +44,7 @@ class AppBottomNavBar extends StatelessWidget {
       unselectedLabelStyle: const TextStyle(color: secondaryColor),
       items: bottomNavBarItems,
       onTap: (int index) {
-        onTabChanged(index); 
+        onTabChanged(index);
       },
     );
   }

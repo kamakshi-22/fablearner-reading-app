@@ -1,8 +1,8 @@
-
 import 'package:fablearner_app/exports/business_exports.dart';
 import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
 import 'login_form.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -37,8 +37,8 @@ class _LoginScreenState extends State<LoginScreen> {
           child: CachedNetworkImage(
             imageUrl: ApiConfig.bgImageUrl,
             fit: BoxFit.cover,
-            placeholder: (context, url) => const Center(
-              child: SpinKitThreeBounceAnimation(),
+            placeholder: (context, url) =>  const Center(
+              child: LoadingAnimation(),
             ),
             errorWidget: (context, url, error) => Image.asset(
               "assets/images/bg.jpg",

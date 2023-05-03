@@ -32,18 +32,24 @@ class _SectionsScreenState extends State<SectionsScreen> {
           },
           actions: [
             IconButton(
+              alignment: Alignment.center,
               onPressed: () async {
                 setState(() {});
                 await appController.loadCourses();
                 setState(() {});
               },
-              icon: const Icon(Icons.refresh),
+              icon: const Icon(
+                Icons.refresh,
+                color: lightColor,
+                size: 24,
+              ),
+              splashColor: tertiaryColor,
               splashRadius: 20,
             ),
           ]),
       body: GetBuilder<AppController>(builder: (controller) {
         if (controller.isLoading.value) {
-          return const SpinKitThreeBounceAnimation();
+          return const LoadingAnimation();
         } else {
           return ListView.builder(
             itemCount: appController.courseList
