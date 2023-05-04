@@ -8,7 +8,7 @@ Future<void> main() async {
   final prefs = await SharedPreferences.getInstance();
   final String? token = prefs.getString('token');
   if (kDebugMode) {
-    print('TOKEN: $token');
+    print('TOKEN: $token - main.dart');
   }
   runApp(MyApp(token: token));
 }

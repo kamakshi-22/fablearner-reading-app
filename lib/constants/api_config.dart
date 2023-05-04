@@ -4,7 +4,7 @@ class ApiConfig {
   static const String loginUrl = "$baseUrl/wp-json/learnpress/v1/";
 
   /* data urls */
-  static const String coursesUrl = "$baseUrl/wp-json/learnpress/v1";
+  static const String coursesUrl = "$baseUrl/wp-json/learnpress/v1/courses/?learned=true";
   static const String activitiesUrl =
       "$baseUrl/wp-json/learnpress/v1/courses/1191";
   static const String lessonsUrl = "$baseUrl/wp-json/learnpress/v1/lessons/";

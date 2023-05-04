@@ -185,7 +185,7 @@ class CourseData {
 }
 
 class Result {
-    int result;
+    double result;
     int pass;
     int countItems;
     int completedItems;
@@ -202,7 +202,7 @@ class Result {
     });
 
     factory Result.fromJson(Map<String, dynamic> json) => Result(
-        result: json["result"],
+        result: json["result"]?.toDouble(),
         pass: json["pass"],
         countItems: json["count_items"],
         completedItems: json["completed_items"],
@@ -446,7 +446,7 @@ class Section {
     int courseId;
     String description;
     String order;
-    int percent;
+    double percent;
     List<Item> items;
 
     Section({
@@ -465,7 +465,7 @@ class Section {
         courseId: json["course_id"],
         description: json["description"],
         order: json["order"],
-        percent: json["percent"],
+        percent: json["percent"]?.toDouble(),
         items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
     );
 
@@ -524,16 +524,18 @@ class Item {
     };
 }
 
-enum Graduation { PASSED }
+enum Graduation { PASSED, EMPTY }
 
 final graduationValues = EnumValues({
+    "": Graduation.EMPTY,
     "passed": Graduation.PASSED
 });
 
-enum Status { COMPLETED }
+enum Status { COMPLETED, EMPTY }
 
 final statusValues = EnumValues({
-    "completed": Status.COMPLETED
+    "completed": Status.COMPLETED,
+    "": Status.EMPTY
 });
 
 enum Type { LP_LESSON }

@@ -5,7 +5,6 @@
 
 export 'package:fablearner_app/controllers/login_controller.dart';
 export 'package:fablearner_app/controllers/app_controller.dart';
-export 'package:fablearner_app/controllers/courses_controller.dart';
 export 'package:fablearner_app/controllers/qr_scanner_controller.dart';
 
 /* -------------------------------------------------------------------------- */
@@ -43,6 +42,7 @@ export 'package:fablearner_app/presentation/screens/utilityScreens/helpDesk/help
 export 'package:fablearner_app/presentation/screens/utilityScreens/qrScanner/qr_scanner.dart';
 export 'package:fablearner_app/presentation/screens/utilityScreens/activitiesSlider/activities_slider.dart';
 export 'package:fablearner_app/presentation/screens/utilityScreens/meetings/meetings.dart';
+export 'package:fablearner_app/presentation/screens/utilityScreens/notificationScreen/notification_screen.dart';
 
 /* -------------------------------------------------------------------------- */
 /*                                   common                                   */
@@ -73,3 +73,5 @@ export 'package:firebase_messaging/firebase_messaging.dart';
 export 'package:flutter_local_notifications/flutter_local_notifications.dart';
 export 'package:device_preview/device_preview.dart';
 export 'package:bordered_text/bordered_text.dart';
+export 'package:sqflite/sqflite.dart';
+

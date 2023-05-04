@@ -1,6 +1,6 @@
 import 'package:fablearner_app/exports/business_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
-import 'package:fablearner_app/business/model/lesson_model.dart';
+import 'package:fablearner_app/business/models/lesson_model.dart';
 import 'package:http/http.dart' as http;
 
 class LessonApi {

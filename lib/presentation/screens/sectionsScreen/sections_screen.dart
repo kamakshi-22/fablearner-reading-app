@@ -128,8 +128,8 @@ class _SectionsScreenState extends State<SectionsScreen> {
                                           ),
                                           const SizedBox(width: 8),
                                           Text(
-                                            "${section.percent} %",
-                                            //toPrecision(2),
+                                            "${section.percent.toPrecision(2)} %",
+                                            
                                             style: AppStyles.indicatorStyle,
                                           ),
                                         ],
@@ -154,9 +154,3 @@ class _SectionsScreenState extends State<SectionsScreen> {
     );
   }
 }
-
-// Get.off(
-            //   () => HomeScreen(token: token),
-            //   duration: 800.milliseconds,
-            //   transition: Transition.leftToRight,
-            // );

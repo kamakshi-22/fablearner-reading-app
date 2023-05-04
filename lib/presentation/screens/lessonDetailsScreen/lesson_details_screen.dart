@@ -32,9 +32,9 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
               error.value != '' ||
               appController.isLoading.value) {
             return const SpinKitThreeBounce(
-                color: primaryColor,
-                size: 24,
-              );
+              color: primaryColor,
+              size: 24,
+            );
           } else {
             return Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -45,10 +45,12 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
                       if (appController.isFinishing.value) {
                         return Row(
                             mainAxisAlignment: MainAxisAlignment.end,
-                            children: const [SpinKitThreeBounce(
-                color: primaryColor,
-                size: 24,
-              ),]);
+                            children: const [
+                              SpinKitThreeBounce(
+                                color: primaryColor,
+                                size: 24,
+                              ),
+                            ]);
                       } else {
                         return ElevatedButton(
                           style: lessonFinished.value
@@ -119,7 +121,6 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
   void initState() {
     super.initState();
     appController = Get.find<AppController>();
-
     _fetchLessonDetails(widget.lessonId);
     appController.getCourseDetailsByLessonId(widget.lessonId);
     saveLesson();
@@ -205,9 +206,8 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
       lessonName.value = lesson.name;
       lessonFinished.value = lesson.results.status == 'completed';
 
-      if(kDebugMode){
+      if (kDebugMode) {
         print('lessonUrl.value: ${lessonUrl.value}');
-        
       }
 
       isLoading.value = false;
@@ -233,9 +233,9 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
       ),
       placeholder: const Center(
         child: SpinKitThreeBounce(
-                color: primaryColor,
-                size: 24,
-              ),
+          color: primaryColor,
+          size: 24,
+        ),
       ),
       errorBuilder: (context, errorMessage) {
         return Center(

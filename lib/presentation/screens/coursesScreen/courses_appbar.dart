@@ -25,6 +25,23 @@ CustomAppBar coursesAppBar(
       ),
 
       /* notifications icon */
+      IconButton(
+        alignment: Alignment.center,
+        onPressed: () {
+          Get.to(
+            () => NotificationScreen(),
+            duration: 800.milliseconds,
+            transition: Transition.rightToLeft,
+          );
+        },
+        icon: Icon(
+          Icons.notifications,
+          color: lightColor,
+          size: AppSizes().refreshIconSize,
+        ),
+        splashColor: tertiaryColor,
+        splashRadius: 20,
+      ),
     ],
   );
 }

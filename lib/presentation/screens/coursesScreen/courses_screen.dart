@@ -1,4 +1,4 @@
-import 'package:fablearner_app/business/model/course_model.dart';
+import 'package:fablearner_app/business/models/course_model.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
 import 'package:fablearner_app/exports/presentation_exports.dart';
 
@@ -17,6 +17,7 @@ class CoursesScreen extends StatefulWidget {
 }
 
 class _CoursesScreenState extends State<CoursesScreen> {
+  
   bool _showCard = true;
   @override
   Widget build(BuildContext context) {
@@ -78,6 +79,10 @@ class _CoursesScreenState extends State<CoursesScreen> {
                   ),
                 ),
                 onTap: () async {
+                  // Set state to hide the card after navigation
+                  setState(() {
+                    _showCard = false;
+                  });
                   Get.to(
                       () => SectionsScreen(
                             token: widget.token,
@@ -111,7 +116,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
           });
         });
       },
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Card(
           child: Container(
@@ -132,7 +137,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Expanded(
                     child: Text(
                       'Continue Where You Left Off',

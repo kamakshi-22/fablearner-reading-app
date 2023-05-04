@@ -1,7 +1,7 @@
 import 'package:fablearner_app/exports/common_exports.dart';
 import 'package:fablearner_app/exports/presentation_exports.dart';
 
-import 'package:fablearner_app/business/model/course_model.dart'
+import 'package:fablearner_app/business/models/course_model.dart'
     as course_model;
 
 class LessonsScreen extends StatefulWidget {
@@ -106,15 +106,16 @@ class _LessonsScreenState extends State<LessonsScreen> {
                                   CircleAvatar(
                                     backgroundColor: Colors.transparent,
                                     child: Checkbox(
-                                      value: lesson.status ==
-                                          course_model.Status.COMPLETED,
-                                      //value: controller.lessonStatus.value,
+                                      value: lesson.status 
+                                      //== 'completed',
+                                      == course_model.Status.COMPLETED,
                                       checkColor: Colors.white,
                                       fillColor: MaterialStateProperty
                                           .resolveWith<Color>(
                                         (Set<MaterialState> states) {
-                                          if (lesson.status ==
-                                              course_model.Status.COMPLETED) {
+                                          if (lesson.status 
+                                          //== 'completed') {
+                                            == course_model.Status.COMPLETED) {
                                             return successColor;
                                           } else {
                                             return Colors.grey.withOpacity(0.4);

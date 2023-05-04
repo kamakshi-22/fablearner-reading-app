@@ -53,6 +53,7 @@ dependencies:
   permission_handler: ^10.2.0
   qr_code_scanner: ^1.0.1
   shared_preferences: ^2.0.18
+  sqflite: ^2.2.8+1
   video_player: ^2.6.0
   webview_flutter: ^2.0.4
 

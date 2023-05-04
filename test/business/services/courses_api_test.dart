@@ -1,5 +1,6 @@
-import 'package:fablearner_app/business/model/course_model.dart';
+import 'package:fablearner_app/business/models/course_model.dart';
 import 'package:fablearner_app/exports/business_exports.dart';
+import 'package:fablearner_app/exports/common_exports.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -7,8 +8,11 @@ void main() {
     setUp(() {});
     group('getCourses function', () {
       test('Token', () async {
-        final response = await CoursesApi.getCourses('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBwLmZhYmxlYXJuZXIub25saW5lIiwiaWF0IjoxNjgyMDUxMDk3LCJuYmYiOjE2ODIwNTEwOTcsImV4cCI6MTY4MjY1NTg5NywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMTMifX19.AjNYu-pRDJcdJniO3yD_T8lW2iybf8zaYoVFeZmlpJo');
-        print(response);
+        final response = await CoursesApi.getCourses(
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBwLmZhYmxlYXJuZXIub25saW5lIiwiaWF0IjoxNjgzMTc2NDgwLCJuYmYiOjE2ODMxNzY0ODAsImV4cCI6MTY4Mzc4MTI4MCwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMyJ9fX0.nf4OIP0yeA9p-aIDVGygZC2ZPQlUqI_sRrfaF76pexg');
+        if (kDebugMode) {
+          print("TEST: CourseApi.getCourses() returned $response");
+        }
         expect(response, isNotNull);
       });
       test('Empty Token', () async {

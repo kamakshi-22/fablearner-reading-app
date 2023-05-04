@@ -21,6 +21,9 @@ class LoginApi {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       final token = data['token'] as String;
+      if (kDebugMode) {
+        print('TOKEN: $token');
+      }
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString('token', token);
     } else {
@@ -50,9 +53,15 @@ class LoginApi {
     try {
       final response = await loginApiCall(username, password);
       if (response.statusCode == 200) {
-        /* Save token and username in shared preferences */
+        /* Get token from response */
         final data = jsonDecode(response.body);
         final token = data['token'] as String;
+
+        if (kDebugMode) {
+          print('TOKEN: $token');
+        }
+
+        /* Save token and username in shared preferences */
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', token);
         await prefs.setString('username', username);

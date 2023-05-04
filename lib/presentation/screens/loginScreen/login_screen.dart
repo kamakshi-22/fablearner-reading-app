@@ -16,6 +16,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
+
+    /* -------------------------------------------------------------------------- */
+    /*                                Notifications                               */
+    /* -------------------------------------------------------------------------- */
     NotificationServices().requestNotificationPermission();
     NotificationServices().firebaseInit(context);
     NotificationServices().setupInteractMessage(context);
@@ -37,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: CachedNetworkImage(
             imageUrl: ApiConfig.bgImageUrl,
             fit: BoxFit.cover,
-            placeholder: (context, url) =>  const Center(
+            placeholder: (context, url) => const Center(
               child: LoadingAnimation(),
             ),
             errorWidget: (context, url, error) => Image.asset(
