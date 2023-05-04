@@ -47,10 +47,10 @@ class _LessonsScreenState extends State<LessonsScreen> {
                 await appController.loadCourses();
                 setState(() {});
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.refresh,
                 color: lightColor,
-                size: 24,
+                size: AppSizes().refreshIconSize,
               ),
               splashColor: tertiaryColor,
               splashRadius: 20,

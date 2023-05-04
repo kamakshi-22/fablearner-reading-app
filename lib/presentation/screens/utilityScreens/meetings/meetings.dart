@@ -1,3 +1,4 @@
+import 'package:fablearner_app/exports/business_exports.dart';
 import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
 
@@ -5,12 +6,12 @@ class MeetingsScreen extends StatefulWidget {
   const MeetingsScreen({Key? key}) : super(key: key);
 
   @override
-  _MeetingsScreenState createState() => _MeetingsScreenState();
+  MeetingsScreenState createState() => MeetingsScreenState();
 }
 
-class _MeetingsScreenState extends State<MeetingsScreen> {
+class MeetingsScreenState extends State<MeetingsScreen> {
   bool _isLoading = true;
-  late WebViewController _webViewController;
+  late WebViewController webViewController;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class _MeetingsScreenState extends State<MeetingsScreen> {
         child: Stack(
           children: [
             WebView(
-              initialUrl: 'https://app.fablearner.online/meeting',
+              initialUrl: ApiConfig.meetingsUrl,
               javascriptMode: JavascriptMode.unrestricted,
               onPageFinished: (_) {
                 setState(() {
@@ -36,7 +37,7 @@ class _MeetingsScreenState extends State<MeetingsScreen> {
                 });
               },
               onWebViewCreated: (controller) {
-                _webViewController = controller;
+                webViewController = controller;
               },
             ),
             if (_isLoading) const LoadingAnimation(),

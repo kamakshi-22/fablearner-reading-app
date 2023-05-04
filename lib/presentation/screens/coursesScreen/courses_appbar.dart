@@ -8,17 +8,17 @@ CustomAppBar coursesAppBar(
     title: 'Fab Courses',
     showBackButton: false,
     centerTitle: false,
-    showLeadingIcon: true,
+    showMenuIcon: true,
     actions: [
       IconButton(
         alignment: Alignment.center,
         onPressed: () {
           appController.loadCourses();
         },
-        icon: const Icon(
+        icon: Icon(
           Icons.refresh,
           color: lightColor,
-          size: 24,
+          size: AppSizes().refreshIconSize,
         ),
         splashColor: tertiaryColor,
         splashRadius: 20,

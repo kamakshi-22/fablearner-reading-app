@@ -15,51 +15,71 @@ class LessonDetailsAppBar extends StatelessWidget
   }) : super(key: key);
 
   @override
+  Size get preferredSize =>
+      Size.fromHeight(MediaQuery.of(Get.context!).size.height * 0.1);
+
+  @override
   Widget build(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      titleSpacing: 0,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          IconButton(
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: lightColor,
-              size: 24,
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(kToolbarHeight),
+      child: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        titleSpacing: 0,
+        centerTitle: false,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            /* -------------------------------------------------------------------------- */
+            /*                                 back button                                */
+            /* -------------------------------------------------------------------------- */
+            IconButton(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.only(),
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: lightColor,
+                size: AppSizes().lessonIconSize,
+              ),
+              onPressed: () {
+                onBackTap();
+              },
+              splashColor: tertiaryColor,
+              splashRadius: 20,
             ),
-            onPressed: () {
-              onBackTap();
-            },
-            splashColor: secondaryColor,
-            splashRadius: 20,
-          ),
-          Expanded(
-            child: Obx(() => Text(
-                  title.value,
-                  style: const TextStyle(fontSize: 20),
-                  textAlign: TextAlign.left,
-                  overflow: TextOverflow.ellipsis,
-                )),
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.arrow_forward_ios,
-              color: lightColor,
-              size: 20,
+            /* -------------------------------------------------------------------------- */
+            /*                                lesson title                                */
+            /* -------------------------------------------------------------------------- */
+            Expanded(
+              child: Obx(() => Text(
+                    title.value,
+                    style: AppStyles.lessonAppBarTitleStyle,
+                    textAlign: TextAlign.left,
+                    overflow: TextOverflow.ellipsis,
+                  )),
             ),
-            onPressed: () {
-              onForwardTap();
-            },
-            splashRadius: 20,
-          ),
-        ],
+            /* -------------------------------------------------------------------------- */
+            /*                               forward button                               */
+            /* -------------------------------------------------------------------------- */
+            IconButton(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.only(),
+              icon: Icon(
+                Icons.arrow_forward_ios,
+                color: lightColor,
+                size: AppSizes().lessonIconSize,
+              ),
+              onPressed: () {
+                onForwardTap();
+              },
+              splashRadius: 20,
+              splashColor: tertiaryColor,
+            ),
+          ],
+        ),
       ),
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(100);
 }

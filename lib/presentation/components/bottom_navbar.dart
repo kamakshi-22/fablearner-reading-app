@@ -1,23 +1,25 @@
-import 'package:fablearner_app/constants/colors.dart';
-import 'package:flutter/material.dart';
+import 'package:fablearner_app/exports/common_exports.dart';
 
 class AppBottomNavBar extends StatelessWidget {
   final List<BottomNavigationBarItem> bottomNavBarItems = [
-    const BottomNavigationBarItem(
+    BottomNavigationBarItem(
       icon: Icon(
         Icons.home,
+        size: AppSizes().bottomNavBarIconSize,
       ),
       label: 'Home',
     ),
-    const BottomNavigationBarItem(
+    BottomNavigationBarItem(
       icon: Icon(
         Icons.qr_code,
+        size: AppSizes().bottomNavBarIconSize,
       ),
-      label: 'Scan QR Code',
+      label: 'QR Code',
     ),
-    const BottomNavigationBarItem(
+    BottomNavigationBarItem(
       icon: Icon(
         Icons.live_help,
+        size: AppSizes().bottomNavBarIconSize,
       ),
       label: 'Help Desk',
     ),
@@ -35,17 +37,23 @@ class AppBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: selectedTabIndex,
-      backgroundColor: primaryColor,
-      selectedItemColor: lightColor,
-      selectedLabelStyle: const TextStyle(color: lightColor),
-      unselectedItemColor: secondaryColor,
-      unselectedLabelStyle: const TextStyle(color: secondaryColor),
-      items: bottomNavBarItems,
-      onTap: (int index) {
-        onTabChanged(index);
-      },
+    return SafeArea(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height *
+            (AppSizes().bottomNavBarHeight),
+        child: BottomNavigationBar(
+          currentIndex: selectedTabIndex,
+          backgroundColor: tertiaryColor,
+          selectedItemColor: primaryColor,
+          selectedLabelStyle: AppStyles.bottomNavBarSelectedLabelTextStyle,
+          unselectedItemColor: lightColor,
+          unselectedLabelStyle: AppStyles.bottomNavBarUnselectedLabelTextStyle,
+          items: bottomNavBarItems,
+          onTap: (int index) {
+            onTabChanged(index);
+          },
+        ),
+      ),
     );
   }
 }

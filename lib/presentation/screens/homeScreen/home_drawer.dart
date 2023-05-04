@@ -1,14 +1,14 @@
 import 'package:fablearner_app/exports/common_exports.dart';
 import 'package:fablearner_app/exports/presentation_exports.dart';
 
-class AppDrawer extends StatefulWidget {
-  const AppDrawer({Key? key}) : super(key: key);
+class HomeDrawer extends StatefulWidget {
+  const HomeDrawer({Key? key}) : super(key: key);
 
   @override
-  AppDrawerState createState() => AppDrawerState();
+  HomeDrawerState createState() => HomeDrawerState();
 }
 
-class AppDrawerState extends State<AppDrawer> {
+class HomeDrawerState extends State<HomeDrawer> {
   String _username = '';
 
   @override
@@ -34,8 +34,12 @@ class AppDrawerState extends State<AppDrawer> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
+            /* -------------------------------------------------------------------------- */
+            /*                                Drawer Header                               */
+            /* -------------------------------------------------------------------------- */
             SizedBox(
-              height: MediaQuery.of(Get.context!).size.height * 0.18,
+              height: MediaQuery.of(Get.context!).size.height *
+                  AppSizes().drawerHeaderHeight,
               child: DrawerHeader(
                 decoration: const BoxDecoration(
                   color: tertiaryColor,
@@ -43,23 +47,20 @@ class AppDrawerState extends State<AppDrawer> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const CircleAvatar(
-                      radius: 18.0,
+                    CircleAvatar(
+                      radius: AppSizes().drawerHeaderAvatarRadius,
                       backgroundColor: lightColor,
                       child: Icon(
                         Icons.person_outline,
                         color: secondaryColor,
-                        size: 24.0,
+                        size: AppSizes().drawerHeaderIconSize,
                       ),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
                       child: Text(
                         _username.toUpperCase(),
-                        style: const TextStyle(
-                          fontSize: 18.0,
-                          color: lightColor,
-                        ),
+                        style: AppStyles.homeDrawerUsernameTextStyle,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -67,19 +68,30 @@ class AppDrawerState extends State<AppDrawer> {
                 ),
               ),
             ),
+
+            /* -------------------------------------------------------------------------- */
+            /*                            Weekly Meetings Tile                            */
+            /* -------------------------------------------------------------------------- */
             ListTile(
-              leading: const Icon(
-                Icons.meeting_room_outlined,
-                color: lightColor,
-              ),
               title: Container(
                 padding: EdgeInsets.zero,
-                child: const Text(
-                  'Weekly Meetings',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    color: lightColor,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.meeting_room_outlined,
+                      color: lightColor,
+                      size: AppSizes().drawerListTileIconSize,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        'Weekly Meetings',
+                        style: AppStyles.homeDrawerListTileTextStyle,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               onTap: () {
@@ -98,19 +110,30 @@ class AppDrawerState extends State<AppDrawer> {
               color: lightColor,
               thickness: 1.0,
             ),
+
+            /* -------------------------------------------------------------------------- */
+            /*                                 Logout Tile                                */
+            /* -------------------------------------------------------------------------- */
             ListTile(
-              leading: const Icon(
-                Icons.logout_outlined,
-                color: lightColor,
-              ),
               title: Container(
                 padding: EdgeInsets.zero,
-                child: const Text(
-                  'Logout',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    color: lightColor,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.logout_outlined,
+                      color: lightColor,
+                      size: AppSizes().drawerListTileIconSize,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        'Logout',
+                        style: AppStyles.homeDrawerListTileTextStyle,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               onTap: () async {

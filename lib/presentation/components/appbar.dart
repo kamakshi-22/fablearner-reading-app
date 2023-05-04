@@ -7,7 +7,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Function()? onBackButtonPressed;
   final List<Widget>? actions;
   final bool centerTitle;
-  final bool showLeadingIcon;
+  final bool showMenuIcon;
 
   const CustomAppBar({
     Key? key,
@@ -16,7 +16,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.onBackButtonPressed,
     this.actions,
     this.centerTitle = true,
-    this.showLeadingIcon = false,
+    this.showMenuIcon = false,
   }) : super(key: key);
 
   @override
@@ -36,14 +36,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (showLeadingIcon)
+            if (showMenuIcon)
               IconButton(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.only(),
-                icon: const Icon(
+                icon: Icon(
                   Icons.menu,
                   color: lightColor,
-                  size: 24,
+                  size: AppSizes().menuIconSize,
                 ),
                 splashColor: tertiaryColor,
                 splashRadius: 20,
@@ -55,10 +55,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               IconButton(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.only(),
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_back_ios,
                   color: lightColor,
-                  size: 24,
+                  size: AppSizes().backIconSize,
                 ),
                 onPressed: onBackButtonPressed,
                 splashColor: tertiaryColor,

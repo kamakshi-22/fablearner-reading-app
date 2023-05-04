@@ -23,24 +23,65 @@ class AppStyles {
       textStyle: TextStyle(
     color: primaryColor,
     letterSpacing: 2,
-    fontSize: MediaQuery.of(Get.context!).size.width * 0.06,
+    fontSize:
+        MediaQuery.of(Get.context!).size.width * AppSizes().appBarTitleFontSize,
+    fontWeight: FontWeight.w600,
+    decoration: TextDecoration.none,
+    decorationColor: secondaryColor,
+  ));
+
+  /* Lesson AppBar Title */
+  static TextStyle lessonAppBarTitleStyle = GoogleFonts.openSans(
+      textStyle: TextStyle(
+    color: primaryColor,
+    fontSize: MediaQuery.of(Get.context!).size.width *
+        AppSizes().lessonAppBarTitleFontSize,
     fontWeight: FontWeight.w600,
     decoration: TextDecoration.none,
     decorationColor: secondaryColor,
   ));
 
   /* -------------------------------------------------------------------------- */
-  /*                                  Subtitle                                  */
+  /*                                 home drawer                                */
   /* -------------------------------------------------------------------------- */
+  static TextStyle homeDrawerUsernameTextStyle = GoogleFonts.openSans(
+    textStyle: TextStyle(
+      color: lightColor,
+      letterSpacing: 1,
+      fontWeight: FontWeight.w600,
+      fontSize: AppSizes().drawerHeaderFontSize,
+    ),
+  );
 
-  // static TextStyle subtitleStyle = GoogleFonts.openSans(
-  //   textStyle: const TextStyle(
-  //     color: lightColor,
-  //     letterSpacing: 1,
-  //     fontWeight: FontWeight.w600,
-  //     fontSize: 18,
-  //   ),
-  // );
+  static TextStyle homeDrawerListTileTextStyle = GoogleFonts.openSans(
+    textStyle: TextStyle(
+      color: lightColor,
+      letterSpacing: 1,
+      fontWeight: FontWeight.w600,
+      fontSize: AppSizes().drawerHeaderListTileFontSize,
+    ),
+  );
+
+  /* -------------------------------------------------------------------------- */
+  /*                                bottom navbar                               */
+  /* -------------------------------------------------------------------------- */
+  static TextStyle bottomNavBarSelectedLabelTextStyle = GoogleFonts.openSans(
+    textStyle: const TextStyle(
+      color: primaryColor,
+      letterSpacing: 1,
+      fontWeight: FontWeight.w600,
+      fontSize: 12,
+    ),
+  );
+
+  static TextStyle bottomNavBarUnselectedLabelTextStyle = GoogleFonts.openSans(
+    textStyle: const TextStyle(
+      color: lightColor,
+      letterSpacing: 1,
+      fontWeight: FontWeight.w600,
+      fontSize: 12,
+    ),
+  );
 
   /* -------------------------------------------------------------------------- */
   /*                                   Buttons                                  */
@@ -195,13 +236,4 @@ class AppStyles {
       fontWeight: FontWeight.w600,
     ),
   );
-
-  // static TextStyle formErrorStyle = GoogleFonts.openSans(
-  //   textStyle: const TextStyle(
-  //     color: warningColor,
-  //     letterSpacing: 1,
-  //     fontWeight: FontWeight.w600,
-  //     fontStyle: FontStyle.italic,
-  //   ),
-  // );
 }

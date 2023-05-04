@@ -1,16 +1,17 @@
 import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
+import 'package:fablearner_app/exports/business_exports.dart';
 
 class HelpDesk extends StatefulWidget {
   const HelpDesk({Key? key}) : super(key: key);
 
   @override
-  _HelpDeskState createState() => _HelpDeskState();
+  HelpDeskState createState() => HelpDeskState();
 }
 
-class _HelpDeskState extends State<HelpDesk> {
+class HelpDeskState extends State<HelpDesk> {
   bool _isLoading = true;
-  late WebViewController _webViewController;
+  late WebViewController webViewController;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class _HelpDeskState extends State<HelpDesk> {
         child: Stack(
           children: [
             WebView(
-              initialUrl: 'https://app.fablearner.online/helpdesk',
+              initialUrl: ApiConfig.helpDeskUrl,
               javascriptMode: JavascriptMode.unrestricted,
               onPageFinished: (_) {
                 setState(() {
@@ -28,7 +29,7 @@ class _HelpDeskState extends State<HelpDesk> {
                 });
               },
               onWebViewCreated: (controller) {
-                _webViewController = controller;
+                webViewController = controller;
               },
             ),
             if (_isLoading) const LoadingAnimation(),
@@ -38,5 +39,3 @@ class _HelpDeskState extends State<HelpDesk> {
     );
   }
 }
-
-

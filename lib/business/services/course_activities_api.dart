@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'api_config.dart';
+import '../../constants/api_config.dart';
 import 'package:http/http.dart' as http;
 
 class ActivitiesCourseApi {

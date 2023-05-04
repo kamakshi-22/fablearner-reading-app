@@ -38,10 +38,10 @@ class _SectionsScreenState extends State<SectionsScreen> {
                 await appController.loadCourses();
                 setState(() {});
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.refresh,
                 color: lightColor,
-                size: 24,
+                size: AppSizes().refreshIconSize,
               ),
               splashColor: tertiaryColor,
               splashRadius: 20,
