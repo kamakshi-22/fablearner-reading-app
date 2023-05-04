@@ -1,7 +1,7 @@
 import 'package:fablearner_app/exports/common_exports.dart';
 import 'package:fablearner_app/exports/presentation_exports.dart';
 
-import 'package:fablearner_app/business/models/course_model.dart'
+import 'package:fablearner_app/business/model/course_model.dart'
     as course_model;
 
 class LessonsScreen extends StatefulWidget {

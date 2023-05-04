@@ -129,6 +129,18 @@ class AppStyles {
   );
 
   /* -------------------------------------------------------------------------- */
+  /*                              notification list                             */
+  /* -------------------------------------------------------------------------- */
+  static TextStyle notificationListTitleStyle = GoogleFonts.openSans(
+    textStyle: const TextStyle(
+      color: lightColor,
+      letterSpacing: 1,
+      fontWeight: FontWeight.bold,
+      fontSize: 16.0,
+    ),
+  );
+
+  /* -------------------------------------------------------------------------- */
   /*                                    card                                    */
   /* -------------------------------------------------------------------------- */
 

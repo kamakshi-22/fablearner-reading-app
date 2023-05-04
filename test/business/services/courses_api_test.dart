@@ -1,4 +1,4 @@
-import 'package:fablearner_app/business/models/course_model.dart';
+import 'package:fablearner_app/business/model/course_model.dart';
 import 'package:fablearner_app/exports/business_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
 import 'package:flutter_test/flutter_test.dart';

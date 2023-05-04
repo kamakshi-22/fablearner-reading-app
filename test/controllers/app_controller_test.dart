@@ -1,6 +1,6 @@
-import 'package:fablearner_app/business/models/course_model.dart'
+import 'package:fablearner_app/business/model/course_model.dart'
     as course_model;
-import 'package:fablearner_app/business/models/lesson_model.dart'
+import 'package:fablearner_app/business/model/lesson_model.dart'
     as lesson_model;
 
 import 'package:fablearner_app/exports/business_exports.dart';
