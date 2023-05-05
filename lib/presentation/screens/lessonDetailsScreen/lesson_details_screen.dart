@@ -13,10 +13,10 @@ class LessonDetailsScreen extends StatefulWidget {
   });
 
   @override
-  _LessonDetailsScreenState createState() => _LessonDetailsScreenState();
+  LessonDetailsScreenState createState() => LessonDetailsScreenState();
 }
 
-class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
+class LessonDetailsScreenState extends State<LessonDetailsScreen> {
   bool snackBarIsVisible = false;
   @override
   Widget build(BuildContext context) {
@@ -153,7 +153,9 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
 
   void forwardTap() {
     if (isLoading.value) {
-      print("FORWARD TAP DISABLED");
+      if (kDebugMode) {
+        print("LESSON DETAILS SCREEN: FORWARD TAP DISABLED");
+      }
       return;
     }
     if (snackBarIsVisible == false) {

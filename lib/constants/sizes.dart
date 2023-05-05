@@ -1,5 +1,3 @@
-import 'package:fablearner_app/exports/common_exports.dart';
-
 class AppSizes {
   /* -------------------------------------------------------------------------- */
   /*                                    icons                                   */

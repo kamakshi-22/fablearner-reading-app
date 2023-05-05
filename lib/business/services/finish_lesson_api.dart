@@ -32,7 +32,7 @@ class FinishLessonApi {
                 child: const Text('Don\'t show this again'),
                 onPressed: () async {
                   await prefs.setBool('showPopup', false);
-                  Navigator.of(context).pop(false);
+                  Navigator.of(Get.context!).pop(false);
                 },
               ),
             ],

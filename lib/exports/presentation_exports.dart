@@ -44,11 +44,6 @@ export 'package:fablearner_app/presentation/screens/utilityScreens/activitiesSli
 export 'package:fablearner_app/presentation/screens/utilityScreens/meetings/meetings.dart';
 export 'package:fablearner_app/presentation/screens/utilityScreens/notificationScreen/notification_screen.dart';
 
-/* -------------------------------------------------------------------------- */
-/*                                   common                                   */
-/* -------------------------------------------------------------------------- */
-export 'package:fablearner_app/presentation/screens/utilityScreens/saveScreen/save_screen.dart';
-
 
 /* -------------------------------------------------------------------------- */
 /*                                dependencies                                */

@@ -46,6 +46,16 @@ class AppController extends GetxController {
     getSavedLesson();
   }
 
+  @override
+  void onClose() {
+    courseList.value =
+        []; // Empty the course list when the controller is closed
+    if (kDebugMode) {
+      print('APPCONTROLLER: onClose() - courseList: $courseList');
+    }
+    super.onClose();
+  }
+
   /* -------------------------------------------------------------------------- */
   /*                                  functions                                 */
   /* -------------------------------------------------------------------------- */
@@ -56,6 +66,7 @@ class AppController extends GetxController {
     }
     try {
       isLoading.value = true;
+
       final loadedCourses = await CoursesApi.getCourses(token);
       update();
       courseList.assignAll(loadedCourses);

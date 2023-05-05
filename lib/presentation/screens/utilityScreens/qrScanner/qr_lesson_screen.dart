@@ -13,10 +13,10 @@ class QRLessonScreen extends StatefulWidget {
   });
 
   @override
-  _QRLessonScreenState createState() => _QRLessonScreenState();
+  QRLessonScreenState createState() => QRLessonScreenState();
 }
 
-class _QRLessonScreenState extends State<QRLessonScreen> {
+class QRLessonScreenState extends State<QRLessonScreen> {
   bool snackBarIsVisible = false;
   @override
   Widget build(BuildContext context) {
@@ -120,7 +120,9 @@ class _QRLessonScreenState extends State<QRLessonScreen> {
 
   @override
   void dispose() {
-    print('DISPOSE CALLED void dispose()');
+    if (kDebugMode) {
+      print('QR LESSON SCREEN: DISPOSE CALLED void dispose()');
+    }
     disposeVideo();
     super.dispose();
   }
@@ -141,7 +143,9 @@ class _QRLessonScreenState extends State<QRLessonScreen> {
 
   void forwardTap() {
     if (isLoading.value) {
-      print("FORWARD TAP DISABLED");
+      if (kDebugMode) {
+        print("FORWARD TAP DISABLED");
+      }
       return;
     }
     Get.snackbar(

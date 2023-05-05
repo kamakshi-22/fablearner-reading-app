@@ -7,21 +7,23 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, required this.token}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   int _selectedTabIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     final appController = Get.put(AppController(token: widget.token));
-    print('Loaded Courses ${appController.courseList.length}');
+    if (kDebugMode) {
+      print('HOME SCREEN: Loaded Courses ${appController.courseList.length}');
+    }
     List<Widget> pages = [
       // Create a list of pages to be shown in the body of the screen
       CoursesScreen(appController: appController, token: widget.token),
       QrScanner(token: widget.token),
-      HelpDesk(),
+      const HelpDesk(),
     ];
 
     return WillPopScope(

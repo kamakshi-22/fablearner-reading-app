@@ -29,7 +29,7 @@ CustomAppBar coursesAppBar(
         alignment: Alignment.center,
         onPressed: () {
           Get.to(
-            () => NotificationScreen(),
+            () => const NotificationScreen(),
             duration: 800.milliseconds,
             transition: Transition.rightToLeft,
           );

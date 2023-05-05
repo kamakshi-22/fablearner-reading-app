@@ -16,7 +16,9 @@ void main() {
         final data = jsonDecode(response.body);
         final token = data['token'];
 
-        print("Token: $token");
+        if (kDebugMode) {
+          print("LOGIN API: Token: $token");
+        }
         
         expect(token, isNotNull);
       });

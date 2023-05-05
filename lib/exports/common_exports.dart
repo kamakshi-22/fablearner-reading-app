@@ -17,7 +17,7 @@ export 'dart:math';
 
 export 'package:fablearner_app/constants/colors.dart';
 export 'package:fablearner_app/constants/styles.dart';
-export 'package:fablearner_app/constants/loadingAnimation.dart';
+export 'package:fablearner_app/constants/loading_animation.dart';
 export 'package:fablearner_app/constants/sizes.dart';
 
 

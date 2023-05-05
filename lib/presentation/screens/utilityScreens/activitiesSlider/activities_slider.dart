@@ -1,4 +1,4 @@
-import 'package:fablearner_app/constants/colors.dart';
+/* import 'package:fablearner_app/constants/colors.dart';
 import 'package:fablearner_app/constants/styles.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
 import 'package:fablearner_app/presentation/screens/lessonDetailsScreen/lesson_details_screen.dart';
@@ -110,3 +110,4 @@ class ActivitiesSlider extends StatelessWidget {
     );
   }
 }
+ */
