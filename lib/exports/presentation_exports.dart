@@ -74,4 +74,4 @@ export 'package:flutter_local_notifications/flutter_local_notifications.dart';
 export 'package:device_preview/device_preview.dart';
 export 'package:bordered_text/bordered_text.dart';
 export 'package:sqflite/sqflite.dart';
-
+export 'package:intl/intl.dart';

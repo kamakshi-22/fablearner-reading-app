@@ -31,7 +31,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
     if (isResetSuccessful) {
       ScaffoldMessenger.of(Get.context!).showSnackBar(
         SnackBar(
-          backgroundColor: successColor,
+          backgroundColor: successGreen,
           content: Text(
             'Password reset email sent to $username.',
             textAlign: TextAlign.center,
@@ -41,7 +41,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
     } else {
       ScaffoldMessenger.of(Get.context!).showSnackBar(
         const SnackBar(
-          backgroundColor: warningColor,
+          backgroundColor: errorRed,
           content: Text(
             'Failed to reset password. \n Check your username or email.',
             textAlign: TextAlign.center,
@@ -58,7 +58,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: secondaryColor,
+      backgroundColor: darkBlue,
       appBar: CustomAppBar(
         title: 'Forgot Password',
         showBackButton: true,
@@ -87,28 +87,28 @@ class ForgotPasswordState extends State<ForgotPassword> {
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(24),
                     borderSide: const BorderSide(
-                      color: primaryColor,
+                      color: primaryRed,
                       width: 2,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(24),
                     borderSide: const BorderSide(
-                      color: lightColor,
+                      color: white,
                       width: 2,
                     ),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(24),
                     borderSide: const BorderSide(
-                      color: warningColor,
+                      color: errorRed,
                       width: 2,
                     ),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(24),
                     borderSide: const BorderSide(
-                      color: warningColor,
+                      color: errorRed,
                       width: 2,
                     ),
                   ),
@@ -132,7 +132,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
                 child: Center(
                   child: _isLoading
                       ? const SpinKitThreeBounce(
-                          color: primaryColor,
+                          color: primaryRed,
                           size: 24,
                         )
                       : Text(

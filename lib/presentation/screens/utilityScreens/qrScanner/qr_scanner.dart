@@ -14,7 +14,7 @@ class QrScanner extends StatelessWidget {
       ),
       builder: (controller) {
         return Scaffold(
-          backgroundColor: secondaryColor,
+          backgroundColor: darkBlue,
           body: Column(
             children: <Widget>[
               Expanded(
@@ -25,7 +25,7 @@ class QrScanner extends StatelessWidget {
                       key: controller.qrKey,
                       onQRViewCreated: controller.onQRViewCreated,
                       overlay: QrScannerOverlayShape(
-                        borderColor: primaryColor,
+                        borderColor: primaryRed,
                         borderRadius: 10,
                         borderLength: 30,
                         borderWidth: 10,

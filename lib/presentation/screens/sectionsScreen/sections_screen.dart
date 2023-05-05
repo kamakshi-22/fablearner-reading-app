@@ -22,7 +22,7 @@ class _SectionsScreenState extends State<SectionsScreen> {
     final course = appController.courseList
         .firstWhere((course) => course.id == widget.courseId);
     return Scaffold(
-      backgroundColor: secondaryColor,
+      backgroundColor: darkBlue,
       appBar: CustomAppBar(
           title: course.name,
           showBackButton: true,
@@ -40,10 +40,10 @@ class _SectionsScreenState extends State<SectionsScreen> {
               },
               icon: Icon(
                 Icons.refresh,
-                color: lightColor,
+                color: white,
                 size: AppSizes().refreshIconSize,
               ),
-              splashColor: tertiaryColor,
+              splashColor: lightBlue,
               splashRadius: 20,
             ),
           ]),
@@ -79,7 +79,7 @@ class _SectionsScreenState extends State<SectionsScreen> {
                             width: double.infinity,
                             height: double.infinity,
                             decoration: BoxDecoration(
-                              color: cardBackgroundColor,
+                              color: purple,
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: InkWell(
@@ -118,18 +118,16 @@ class _SectionsScreenState extends State<SectionsScreen> {
                                               height: 10,
                                               child: LinearProgressIndicator(
                                                 value: section.percent / 100,
-                                                backgroundColor:
-                                                    Colors.grey[300],
+                                                backgroundColor: grey,
                                                 valueColor:
                                                     const AlwaysStoppedAnimation<
-                                                        Color>(successColor),
+                                                        Color>(successGreen),
                                               ),
                                             ),
                                           ),
                                           const SizedBox(width: 8),
                                           Text(
                                             "${section.percent.toPrecision(2)} %",
-                                            
                                             style: AppStyles.indicatorStyle,
                                           ),
                                         ],

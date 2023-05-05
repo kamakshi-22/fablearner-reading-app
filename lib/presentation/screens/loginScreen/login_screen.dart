@@ -64,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ? MediaQuery.of(context).size.height
                         : 0,
                     decoration: const BoxDecoration(
-                      color: secondaryColor,
+                      color: darkBlue,
                     ),
                     child: SafeArea(
                       child: SingleChildScrollView(

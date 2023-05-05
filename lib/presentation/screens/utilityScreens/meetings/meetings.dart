@@ -24,7 +24,7 @@ class MeetingsScreenState extends State<MeetingsScreen> {
           Get.back();
         },
       ),
-      backgroundColor: secondaryColor,
+      backgroundColor: darkBlue,
       body: SafeArea(
         child: Stack(
           children: [

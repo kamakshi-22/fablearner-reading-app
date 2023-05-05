@@ -43,10 +43,10 @@ class AppBottomNavBar extends StatelessWidget {
             (AppSizes().bottomNavBarHeight),
         child: BottomNavigationBar(
           currentIndex: selectedTabIndex,
-          backgroundColor: tertiaryColor,
-          selectedItemColor: primaryColor,
+          backgroundColor: lightBlue,
+          selectedItemColor: primaryRed,
           selectedLabelStyle: AppStyles.bottomNavBarSelectedLabelTextStyle,
-          unselectedItemColor: lightColor,
+          unselectedItemColor: white,
           unselectedLabelStyle: AppStyles.bottomNavBarUnselectedLabelTextStyle,
           items: bottomNavBarItems,
           onTap: (int index) {

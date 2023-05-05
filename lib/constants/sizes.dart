@@ -36,4 +36,10 @@ class AppSizes {
   /* -------------------------------------------------------------------------- */
   double bottomNavBarHeight = 0.1;
   double bottomNavBarIconSize = 24.0;
+
+  /* -------------------------------------------------------------------------- */
+  /*                             notifications list                             */
+  /* -------------------------------------------------------------------------- */
+  double notificationsListTileIconSize = 24.0;
+  double notificationsListDeleteIconSize = 20.0;
 }

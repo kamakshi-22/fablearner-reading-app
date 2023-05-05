@@ -23,7 +23,7 @@ class _QRLessonScreenState extends State<QRLessonScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: secondaryColor,
+      backgroundColor: darkBlue,
       appBar: LessonDetailsAppBar(
           title: lessonName, onBackTap: backTap, onForwardTap: forwardTap),
       body: Center(
@@ -185,10 +185,10 @@ class _QRLessonScreenState extends State<QRLessonScreen> {
       allowMuting: true,
       looping: false,
       materialProgressColors: ChewieProgressColors(
-        playedColor: primaryColor,
-        handleColor: primaryColor,
-        backgroundColor: lightColor,
-        bufferedColor: successColor,
+        playedColor: darkBlue,
+        handleColor: darkBlue,
+        backgroundColor: white,
+        bufferedColor: successGreen,
       ),
       placeholder: const Center(
         child: LoadingAnimation(),

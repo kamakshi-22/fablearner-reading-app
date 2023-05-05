@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: _buildAppBar(),
         drawer: const HomeDrawer(),
-        backgroundColor: secondaryColor,
+        backgroundColor: darkBlue,
         body: pages[_selectedTabIndex],
         bottomNavigationBar: AppBottomNavBar(
           token: widget.token,

@@ -23,7 +23,7 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: secondaryColor,
+      backgroundColor: darkBlue,
       appBar: LessonDetailsAppBar(
           title: lessonName, onBackTap: backTap, onForwardTap: forwardTap),
       body: Center(
@@ -32,7 +32,7 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
               error.value != '' ||
               appController.isLoading.value) {
             return const SpinKitThreeBounce(
-              color: primaryColor,
+              color: primaryRed,
               size: 24,
             );
           } else {
@@ -47,7 +47,7 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: const [
                               SpinKitThreeBounce(
-                                color: primaryColor,
+                                color: primaryRed,
                                 size: 24,
                               ),
                             ]);
@@ -226,14 +226,14 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
       allowMuting: true,
       looping: false,
       materialProgressColors: ChewieProgressColors(
-        playedColor: primaryColor,
-        handleColor: primaryColor,
-        backgroundColor: lightColor,
-        bufferedColor: successColor,
+        playedColor: primaryRed,
+        handleColor: primaryRed,
+        backgroundColor: white,
+        bufferedColor: successGreen,
       ),
       placeholder: const Center(
         child: SpinKitThreeBounce(
-          color: primaryColor,
+          color: primaryRed,
           size: 24,
         ),
       ),

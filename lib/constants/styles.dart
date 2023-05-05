@@ -7,7 +7,7 @@ class AppStyles {
   /* -------------------------------------------------------------------------- */
   static TextStyle errorTextStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-      color: warningColor,
+      color: errorRed,
       letterSpacing: 1,
       fontWeight: FontWeight.w800,
       fontSize: 12,
@@ -21,24 +21,24 @@ class AppStyles {
   /* App Bar Title */
   static TextStyle appBarTitleStyle = GoogleFonts.abrilFatface(
       textStyle: TextStyle(
-    color: primaryColor,
+    color: primaryRed,
     letterSpacing: 2,
     fontSize:
         MediaQuery.of(Get.context!).size.width * AppSizes().appBarTitleFontSize,
     fontWeight: FontWeight.w600,
     decoration: TextDecoration.none,
-    decorationColor: secondaryColor,
+    decorationColor: darkBlue,
   ));
 
   /* Lesson AppBar Title */
   static TextStyle lessonAppBarTitleStyle = GoogleFonts.openSans(
       textStyle: TextStyle(
-    color: primaryColor,
+    color: primaryRed,
     fontSize: MediaQuery.of(Get.context!).size.width *
         AppSizes().lessonAppBarTitleFontSize,
     fontWeight: FontWeight.w600,
     decoration: TextDecoration.none,
-    decorationColor: secondaryColor,
+    decorationColor: darkBlue,
   ));
 
   /* -------------------------------------------------------------------------- */
@@ -46,7 +46,7 @@ class AppStyles {
   /* -------------------------------------------------------------------------- */
   static TextStyle homeDrawerUsernameTextStyle = GoogleFonts.openSans(
     textStyle: TextStyle(
-      color: lightColor,
+      color: white,
       letterSpacing: 1,
       fontWeight: FontWeight.w600,
       fontSize: AppSizes().drawerHeaderFontSize,
@@ -55,7 +55,7 @@ class AppStyles {
 
   static TextStyle homeDrawerListTileTextStyle = GoogleFonts.openSans(
     textStyle: TextStyle(
-      color: lightColor,
+      color: white,
       letterSpacing: 1,
       fontWeight: FontWeight.w600,
       fontSize: AppSizes().drawerHeaderListTileFontSize,
@@ -67,7 +67,7 @@ class AppStyles {
   /* -------------------------------------------------------------------------- */
   static TextStyle bottomNavBarSelectedLabelTextStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-      color: primaryColor,
+      color: primaryRed,
       letterSpacing: 1,
       fontWeight: FontWeight.w600,
       fontSize: 12,
@@ -76,7 +76,7 @@ class AppStyles {
 
   static TextStyle bottomNavBarUnselectedLabelTextStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-      color: lightColor,
+      color: white,
       letterSpacing: 1,
       fontWeight: FontWeight.w600,
       fontSize: 12,
@@ -89,7 +89,7 @@ class AppStyles {
 
   /* Button Design Styles */
   static ButtonStyle primaryButtonStyle = ElevatedButton.styleFrom(
-    backgroundColor: primaryColor,
+    backgroundColor: primaryRed,
     padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 16),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
@@ -99,8 +99,8 @@ class AppStyles {
   );
 
   static ButtonStyle secondaryButtonStyle = ElevatedButton.styleFrom(
-    backgroundColor: successColor,
-    foregroundColor: lightColor,
+    backgroundColor: successGreen,
+    foregroundColor: white,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(24),
@@ -110,7 +110,7 @@ class AppStyles {
 
   static ButtonStyle disabledButtonStyle = ElevatedButton.styleFrom(
     backgroundColor: Colors.grey[300],
-    foregroundColor: lightColor,
+    foregroundColor: white,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(24),
@@ -121,7 +121,7 @@ class AppStyles {
   /* Button Text Styles */
   static TextStyle buttonTextStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-      color: secondaryColor,
+      color: darkBlue,
       letterSpacing: 1,
       fontWeight: FontWeight.w800,
       fontSize: 16,
@@ -133,10 +133,27 @@ class AppStyles {
   /* -------------------------------------------------------------------------- */
   static TextStyle notificationListTitleStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-      color: lightColor,
+      color: white,
       letterSpacing: 1,
       fontWeight: FontWeight.bold,
-      fontSize: 16.0,
+      fontSize: 10.0,
+    ),
+  );
+
+  static TextStyle notificationListSubtitleStyle = GoogleFonts.openSans(
+    textStyle: const TextStyle(
+      color: darkBlue,
+      fontWeight: FontWeight.w600,
+      fontSize: 10.0,
+    ),
+  );
+
+  static TextStyle notificationListTrailingStyle = GoogleFonts.openSans(
+    textStyle: const TextStyle(
+      color: purple,
+      letterSpacing: 1,
+      fontWeight: FontWeight.w600,
+      fontSize: 8.0,
     ),
   );
 
@@ -146,18 +163,18 @@ class AppStyles {
 
   static TextStyle cardTitleStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-        color: secondaryColor, fontWeight: FontWeight.w800, fontSize: 18),
+        color: darkBlue, fontWeight: FontWeight.w800, fontSize: 18),
   );
 
   static TextStyle cardListStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-        color: secondaryColor, fontWeight: FontWeight.w500, fontSize: 16),
+        color: darkBlue, fontWeight: FontWeight.w500, fontSize: 16),
   );
 
   static TextStyle indicatorStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
       fontSize: 12,
-      color: successColor,
+      color: successGreen,
       fontWeight: FontWeight.w800,
     ),
   );
@@ -183,14 +200,14 @@ class AppStyles {
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(24),
         borderSide: const BorderSide(
-          color: primaryColor,
+          color: primaryRed,
           width: 2,
         ),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(24),
         borderSide: const BorderSide(
-          color: lightColor,
+          color: white,
           width: 2,
         ),
       ),
@@ -198,7 +215,7 @@ class AppStyles {
           ? OutlineInputBorder(
               borderRadius: BorderRadius.circular(24),
               borderSide: const BorderSide(
-                color: warningColor,
+                color: errorRed,
                 width: 2,
               ),
             )
@@ -207,7 +224,7 @@ class AppStyles {
           ? OutlineInputBorder(
               borderRadius: BorderRadius.circular(24),
               borderSide: const BorderSide(
-                color: warningColor,
+                color: errorRed,
                 width: 2,
               ),
             )
@@ -218,7 +235,7 @@ class AppStyles {
   /* Form Link Style */
   static TextStyle loginStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-        color: primaryColor,
+        color: primaryRed,
         letterSpacing: 1,
         fontWeight: FontWeight.w800,
         fontSize: 18),
@@ -226,7 +243,7 @@ class AppStyles {
 
   static TextStyle forgotPasswordStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-        color: lightColor,
+        color: white,
         letterSpacing: 1,
         fontWeight: FontWeight.bold,
         fontSize: 16),
@@ -235,7 +252,7 @@ class AppStyles {
   /* Form Label Styles */
   static TextStyle formLabelStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-      color: lightColor,
+      color: white,
       letterSpacing: 1,
       fontWeight: FontWeight.w600,
     ),
@@ -243,7 +260,7 @@ class AppStyles {
 
   static TextStyle formHintStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-      color: lightColor,
+      color: white,
       letterSpacing: 1,
       fontWeight: FontWeight.w600,
     ),

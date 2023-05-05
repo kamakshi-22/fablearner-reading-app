@@ -42,10 +42,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 padding: const EdgeInsets.only(),
                 icon: Icon(
                   Icons.menu,
-                  color: lightColor,
+                  color: white,
                   size: AppSizes().menuIconSize,
                 ),
-                splashColor: tertiaryColor,
+                splashColor: lightBlue,
                 splashRadius: 20,
                 onPressed: () {
                   Scaffold.of(context).openDrawer();
@@ -57,11 +57,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 padding: const EdgeInsets.only(),
                 icon: Icon(
                   Icons.arrow_back_ios,
-                  color: lightColor,
+                  color: white,
                   size: AppSizes().backIconSize,
                 ),
                 onPressed: onBackButtonPressed,
-                splashColor: tertiaryColor,
+                splashColor: lightBlue,
                 splashRadius: 20,
               ),
             Flexible(
@@ -69,7 +69,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               fit: BoxFit.scaleDown,
               child: BorderedText(
                 strokeWidth: 6.0,
-                strokeColor: secondaryColor,
+                strokeColor: darkBlue,
                 child: Text(
                   title,
                   textAlign: TextAlign.start,

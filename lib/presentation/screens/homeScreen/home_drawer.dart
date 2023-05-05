@@ -30,7 +30,7 @@ class HomeDrawerState extends State<HomeDrawer> {
     return Drawer(
       width: MediaQuery.of(context).size.width * 0.6,
       child: Container(
-        color: secondaryColor,
+        color: darkBlue,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -42,17 +42,17 @@ class HomeDrawerState extends State<HomeDrawer> {
                   AppSizes().drawerHeaderHeight,
               child: DrawerHeader(
                 decoration: const BoxDecoration(
-                  color: tertiaryColor,
+                  color: lightBlue,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     CircleAvatar(
                       radius: AppSizes().drawerHeaderAvatarRadius,
-                      backgroundColor: lightColor,
+                      backgroundColor: white,
                       child: Icon(
                         Icons.person_outline,
-                        color: secondaryColor,
+                        color: darkBlue,
                         size: AppSizes().drawerHeaderIconSize,
                       ),
                     ),
@@ -80,7 +80,7 @@ class HomeDrawerState extends State<HomeDrawer> {
                   children: [
                     Icon(
                       Icons.meeting_room_outlined,
-                      color: lightColor,
+                      color: white,
                       size: AppSizes().drawerListTileIconSize,
                     ),
                     const SizedBox(width: 10),
@@ -107,7 +107,7 @@ class HomeDrawerState extends State<HomeDrawer> {
               },
             ),
             const Divider(
-              color: lightColor,
+              color: white,
               thickness: 1.0,
             ),
 
@@ -122,7 +122,7 @@ class HomeDrawerState extends State<HomeDrawer> {
                   children: [
                     Icon(
                       Icons.logout_outlined,
-                      color: lightColor,
+                      color: white,
                       size: AppSizes().drawerListTileIconSize,
                     ),
                     const SizedBox(width: 10),

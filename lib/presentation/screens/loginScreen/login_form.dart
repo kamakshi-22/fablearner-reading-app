@@ -56,7 +56,7 @@ class LoginScreenForm extends StatelessWidget {
                         loginController.isPasswordVisible.value
                             ? Icons.visibility
                             : Icons.visibility_off,
-                        color: primaryColor,
+                        color: primaryRed,
                       ),
                       onPressed: () {
                         loginController.isPasswordVisible.value =
@@ -85,7 +85,7 @@ class LoginScreenForm extends StatelessWidget {
               Obx(() {
                 return loginController.isLoading.value
                     ? const SpinKitThreeBounce(
-                        color: primaryColor,
+                        color: primaryRed,
                         size: 24,
                       )
                     : GestureDetector(

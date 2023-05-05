@@ -29,7 +29,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
     final sections = course.sections;
 
     return Scaffold(
-      backgroundColor: secondaryColor,
+      backgroundColor: darkBlue,
       appBar: CustomAppBar(
           title: sections
               .firstWhere((section) => section.id == widget.sectionId)
@@ -49,10 +49,10 @@ class _LessonsScreenState extends State<LessonsScreen> {
               },
               icon: Icon(
                 Icons.refresh,
-                color: lightColor,
+                color: white,
                 size: AppSizes().refreshIconSize,
               ),
-              splashColor: tertiaryColor,
+              splashColor: lightBlue,
               splashRadius: 20,
             ),
           ]),
@@ -86,7 +86,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
                               horizontal: 16, vertical: 8),
                           child: Card(
                             elevation: 0,
-                            color: tertiaryColor,
+                            color: lightBlue,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.0),
                             ),
@@ -116,7 +116,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
                                           if (lesson.status 
                                           //== 'completed') {
                                             == course_model.Status.COMPLETED) {
-                                            return successColor;
+                                            return successGreen;
                                           } else {
                                             return Colors.grey.withOpacity(0.4);
                                           }
@@ -130,7 +130,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
                                     child: Text(
                                       lesson.title,
                                       style: AppStyles.cardListStyle
-                                          .copyWith(color: lightColor),
+                                          .copyWith(color: white),
                                     ),
                                   ),
                                 ],

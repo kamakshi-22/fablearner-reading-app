@@ -17,10 +17,10 @@ CustomAppBar coursesAppBar(
         },
         icon: Icon(
           Icons.refresh,
-          color: lightColor,
+          color: white,
           size: AppSizes().refreshIconSize,
         ),
-        splashColor: tertiaryColor,
+        splashColor: lightBlue,
         splashRadius: 20,
       ),
 
@@ -36,10 +36,10 @@ CustomAppBar coursesAppBar(
         },
         icon: Icon(
           Icons.notifications,
-          color: lightColor,
+          color: white,
           size: AppSizes().refreshIconSize,
         ),
-        splashColor: tertiaryColor,
+        splashColor: lightBlue,
         splashRadius: 20,
       ),
     ],

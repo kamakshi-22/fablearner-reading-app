@@ -9,7 +9,7 @@ class LoadingAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SpinKitThreeBounce(
-        color: primaryColor,
+        color: primaryRed,
         size: 24,
       );
   }

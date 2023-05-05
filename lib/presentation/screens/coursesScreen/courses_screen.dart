@@ -75,7 +75,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
                 trailing: Text(
                   '${course.sections.where((section) => section.percent == 100).length}/${course.sections.length}',
                   style: AppStyles.cardTitleStyle.copyWith(
-                    color: successColor,
+                    color: successGreen,
                   ),
                 ),
                 onTap: () async {
@@ -126,7 +126,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
                 end: Alignment.bottomRight,
                 colors: [
                   Colors.orange.shade400,
-                  primaryColor,
+                  primaryRed,
                 ],
               ),
             ),

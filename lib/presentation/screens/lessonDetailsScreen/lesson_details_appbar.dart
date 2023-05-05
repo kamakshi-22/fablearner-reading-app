@@ -40,13 +40,13 @@ class LessonDetailsAppBar extends StatelessWidget
               padding: const EdgeInsets.only(),
               icon: Icon(
                 Icons.arrow_back_ios,
-                color: lightColor,
+                color: white,
                 size: AppSizes().lessonIconSize,
               ),
               onPressed: () {
                 onBackTap();
               },
-              splashColor: tertiaryColor,
+              splashColor: lightBlue,
               splashRadius: 20,
             ),
             /* -------------------------------------------------------------------------- */
@@ -68,14 +68,14 @@ class LessonDetailsAppBar extends StatelessWidget
               padding: const EdgeInsets.only(),
               icon: Icon(
                 Icons.arrow_forward_ios,
-                color: lightColor,
+                color: white,
                 size: AppSizes().lessonIconSize,
               ),
               onPressed: () {
                 onForwardTap();
               },
               splashRadius: 20,
-              splashColor: tertiaryColor,
+              splashColor: lightBlue,
             ),
           ],
         ),
