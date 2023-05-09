@@ -106,16 +106,12 @@ class _LessonsScreenState extends State<LessonsScreen> {
                                   CircleAvatar(
                                     backgroundColor: Colors.transparent,
                                     child: Checkbox(
-                                      value: lesson.status 
-                                      //== 'completed',
-                                      == course_model.Status.COMPLETED,
+                                      value: lesson.status == 'completed',
                                       checkColor: Colors.white,
                                       fillColor: MaterialStateProperty
                                           .resolveWith<Color>(
                                         (Set<MaterialState> states) {
-                                          if (lesson.status 
-                                          //== 'completed') {
-                                            == course_model.Status.COMPLETED) {
+                                          if (lesson.status == 'completed') {
                                             return successGreen;
                                           } else {
                                             return Colors.grey.withOpacity(0.4);

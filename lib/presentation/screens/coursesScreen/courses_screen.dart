@@ -17,7 +17,6 @@ class CoursesScreen extends StatefulWidget {
 }
 
 class _CoursesScreenState extends State<CoursesScreen> {
-  
   bool _showCard = true;
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
           : (widget.appController.error.value != null)
               ? Center(
                   child: Text(
-                    widget.appController.error.value!,
+                    'Error loading courses. Please try again.',
                     style: AppStyles.errorTextStyle,
                   ),
                 )

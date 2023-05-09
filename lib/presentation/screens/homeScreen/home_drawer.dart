@@ -137,9 +137,6 @@ class HomeDrawerState extends State<HomeDrawer> {
                 ),
               ),
               onTap: () async {
-                AppController appController = Get.find<AppController>();
-                appController.courseList.clear();
-
                 /* Remove saved token and username */
                 final prefs = await SharedPreferences.getInstance();
                 await prefs.remove('token');

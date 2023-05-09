@@ -12,10 +12,23 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   int _selectedTabIndex = 0;
+  late AppController appController;
+
+  @override
+  void initState() {
+    super.initState();
+    appController = Get.put(AppController(token: widget.token));
+  }
+
+  @override
+  void dispose() {
+    Get.delete<AppController>();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final appController = Get.put(AppController(token: widget.token));
+    //final appController = Get.put(AppController(token: widget.token));
     if (kDebugMode) {
       print('HOME SCREEN: Loaded Courses ${appController.courseList.length}');
     }

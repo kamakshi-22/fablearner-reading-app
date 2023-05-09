@@ -1,4 +1,66 @@
-// To parse this JSON data, do
+class Course {
+  int id;
+  String name;
+  String image;
+  List<Section> sections;
+
+  Course({required this.id, required this.name, required this.image, required this.sections});
+
+  factory Course.fromJson(Map<String, dynamic> json) {
+    var sectionsList = json['sections'] as List;
+    List<Section> sections =
+        sectionsList.map((i) => Section.fromJson(i)).toList();
+
+    return Course(
+      id: json['id'],
+      name: json['name'],
+      image: json['image'],
+      sections: sections,
+    );
+  }
+}
+
+class Section {
+  int id;
+  String title;
+  int courseId;
+  dynamic percent;
+  List<Item> items;
+
+  Section({required this.id, required this.title, required this.courseId, required this.percent, required this.items});
+
+  factory Section.fromJson(Map<String, dynamic> json) {
+    var itemsList = json['items'] as List;
+    List<Item> items = itemsList.map((i) => Item.fromJson(i)).toList();
+
+    return Section(
+      id: json['id'],
+      title: json['title'],
+      courseId: json['course_id'],
+      percent: json['percent'],
+      items: items,
+    );
+  }
+}
+
+class Item {
+  int id;
+  String title;
+  String status;
+
+  Item({required this.id, required this.title, required this.status});
+
+  factory Item.fromJson(Map<String, dynamic> json) {
+    return Item(
+      id: json['id'],
+      title: json['title'],
+      status: json['status'],
+    );
+  }
+}
+
+
+/* // To parse this JSON data, do
 //
 //     final course = courseFromJson(jsonString);
 
@@ -555,3 +617,4 @@ class EnumValues<T> {
         return reverseMap;
     }
 }
+ */

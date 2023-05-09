@@ -42,7 +42,12 @@ class AppController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    print("APPCONTROLLER: onInit() - courseList: ${courseList.length}");
+    courseList.value.clear();
+    print("APPCONTROLLER: onInit() after clear - courseList: ${courseList.length}");
     loadCourses();
+    print(
+        "APPCONTROLLER: onInit() after loadCourses() - courseList: ${courseList.length}");
     getSavedLesson();
   }
 
@@ -66,7 +71,6 @@ class AppController extends GetxController {
     }
     try {
       isLoading.value = true;
-
       final loadedCourses = await CoursesApi.getCourses(token);
       update();
       courseList.assignAll(loadedCourses);

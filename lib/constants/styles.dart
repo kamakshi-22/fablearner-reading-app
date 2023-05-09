@@ -136,7 +136,7 @@ class AppStyles {
       color: white,
       letterSpacing: 1,
       fontWeight: FontWeight.bold,
-      fontSize: 10.0,
+      fontSize: 16.0,
     ),
   );
 
@@ -144,7 +144,7 @@ class AppStyles {
     textStyle: const TextStyle(
       color: darkBlue,
       fontWeight: FontWeight.w600,
-      fontSize: 10.0,
+      fontSize: 12.0,
     ),
   );
 

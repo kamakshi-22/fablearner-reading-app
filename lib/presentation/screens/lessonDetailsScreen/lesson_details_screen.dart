@@ -242,7 +242,7 @@ class LessonDetailsScreenState extends State<LessonDetailsScreen> {
       errorBuilder: (context, errorMessage) {
         return Center(
           child: Text(
-            errorMessage,
+            "Error loading lesson. Please try again later.",
             style: AppStyles.errorTextStyle,
           ),
         );

@@ -39,7 +39,7 @@ class QrScanner extends StatelessWidget {
                     if (controller.error.isNotEmpty)
                       Center(
                         child: Text(
-                          controller.error,
+                          'Error while scanning. Please try again later.',
                           style: AppStyles.errorTextStyle,
                         ),
                       ),

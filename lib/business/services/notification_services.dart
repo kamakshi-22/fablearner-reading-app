@@ -160,6 +160,8 @@ class NotificationServices {
     if (kDebugMode) {
       print('Message data: ${message.data['meeting'].toString()}');
     }
+    // Save notification to local storage
+    LocalStorage().saveNotification(message);
     if (message.data['meeting'] == 'true') {
       Get.to(
         () => const MeetingsScreen(),

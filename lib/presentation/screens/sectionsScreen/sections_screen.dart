@@ -127,7 +127,7 @@ class _SectionsScreenState extends State<SectionsScreen> {
                                           ),
                                           const SizedBox(width: 8),
                                           Text(
-                                            "${section.percent.toPrecision(2)} %",
+                                            "${section.percent.toStringAsFixed(1)} %",
                                             style: AppStyles.indicatorStyle,
                                           ),
                                         ],

@@ -3,9 +3,9 @@ class AppSizes {
   /*                                    icons                                   */
   /* -------------------------------------------------------------------------- */
   double menuIconSize = 24.0;
-  double refreshIconSize = 20.0;
-  double backIconSize = 20.0;
-  double lessonIconSize = 20.0;
+  double refreshIconSize = 24.0;
+  double backIconSize = 24.0;
+  double lessonIconSize = 24.0;
 
   /* -------------------------------------------------------------------------- */
   /*                                   appbar                                   */
