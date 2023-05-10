@@ -30,7 +30,11 @@ class AppController extends GetxController {
   int? currentLessonId;
 
   // Finish lesson variables
-  final isConfirmed = Rxn<bool>();
+  RxBool isLessonFinished = false.obs;
+
+  void setIsLessonFinished(bool value) {
+    isLessonFinished.value = value;
+  }
 
   // Shared preferences
   int? savedLessonId;
@@ -44,7 +48,8 @@ class AppController extends GetxController {
     super.onInit();
     print("APPCONTROLLER: onInit() - courseList: ${courseList.length}");
     courseList.value.clear();
-    print("APPCONTROLLER: onInit() after clear - courseList: ${courseList.length}");
+    print(
+        "APPCONTROLLER: onInit() after clear - courseList: ${courseList.length}");
     loadCourses();
     print(
         "APPCONTROLLER: onInit() after loadCourses() - courseList: ${courseList.length}");
@@ -129,10 +134,11 @@ class AppController extends GetxController {
 
   Future<void> finishLesson() async {
     isFinishing.value = true;
-    isConfirmed.value = await FinishLessonApi.finishLesson(
+    await FinishLessonApi.finishLesson(
       token: token,
       lessonId: currentLessonId!,
     );
+
     isFinishing.value = false;
   }
 }

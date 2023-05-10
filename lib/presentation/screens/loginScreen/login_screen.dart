@@ -35,7 +35,12 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
-      appBar: const CustomAppBar(title: "FabLearner", showBackButton: false),
+      appBar: const CustomAppBar(
+        title: 
+        "FabLearner", 
+        showBackButton: false,
+        backgroundColor: Colors.transparent,
+        ),
       body: Stack(children: [
         Positioned.fill(
           child: CachedNetworkImage(

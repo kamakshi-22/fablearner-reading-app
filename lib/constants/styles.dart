@@ -109,8 +109,8 @@ class AppStyles {
   );
 
   static ButtonStyle disabledButtonStyle = ElevatedButton.styleFrom(
-    backgroundColor: Colors.grey[300],
-    foregroundColor: white,
+    backgroundColor: lightBlue,
+    foregroundColor: black,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(24),
@@ -135,8 +135,7 @@ class AppStyles {
     textStyle: const TextStyle(
       color: white,
       letterSpacing: 1,
-      fontWeight: FontWeight.bold,
-      fontSize: 16.0,
+      fontSize: 12.0,
     ),
   );
 
@@ -161,20 +160,25 @@ class AppStyles {
   /*                                    card                                    */
   /* -------------------------------------------------------------------------- */
 
-  static TextStyle cardTitleStyle = GoogleFonts.openSans(
+  static TextStyle courseCardTitleStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
         color: darkBlue, fontWeight: FontWeight.w800, fontSize: 18),
   );
 
+  static TextStyle sectionCardTitleStyle = GoogleFonts.openSans(
+    textStyle: const TextStyle(
+        color: white, fontWeight: FontWeight.w800, fontSize: 18),
+  );
+
   static TextStyle cardListStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
-        color: darkBlue, fontWeight: FontWeight.w500, fontSize: 16),
+        color: white, fontWeight: FontWeight.w500, fontSize: 16),
   );
 
   static TextStyle indicatorStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
       fontSize: 12,
-      color: successGreen,
+      color: grey,
       fontWeight: FontWeight.w800,
     ),
   );

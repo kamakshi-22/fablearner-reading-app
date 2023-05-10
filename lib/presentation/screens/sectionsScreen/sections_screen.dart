@@ -79,7 +79,7 @@ class _SectionsScreenState extends State<SectionsScreen> {
                             width: double.infinity,
                             height: double.infinity,
                             decoration: BoxDecoration(
-                              color: purple,
+                              color: lightBlue,
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: InkWell(
@@ -101,7 +101,7 @@ class _SectionsScreenState extends State<SectionsScreen> {
                                   children: [
                                     Text(
                                       section.title,
-                                      style: AppStyles.cardTitleStyle,
+                                      style: AppStyles.sectionCardTitleStyle,
                                     ),
                                     const SizedBox(height: 8),
                                     Expanded(
@@ -118,7 +118,7 @@ class _SectionsScreenState extends State<SectionsScreen> {
                                               height: 10,
                                               child: LinearProgressIndicator(
                                                 value: section.percent / 100,
-                                                backgroundColor: grey,
+                                                backgroundColor: white,
                                                 valueColor:
                                                     const AlwaysStoppedAnimation<
                                                         Color>(successGreen),

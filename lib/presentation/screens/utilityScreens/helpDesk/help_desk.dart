@@ -16,7 +16,15 @@ class HelpDeskState extends State<HelpDesk> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      appBar: CustomAppBar(
+        title: 'Help Desk',
+        centerTitle: false,
+        showBackButton: true,
+        onBackButtonPressed: () {
+          Get.back();
+        },
+      ),
+      backgroundColor: darkBlue,
       body: SafeArea(
         child: Stack(
           children: [

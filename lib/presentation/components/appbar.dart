@@ -8,6 +8,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final bool centerTitle;
   final bool showMenuIcon;
+  final Color backgroundColor;
 
   const CustomAppBar({
     Key? key,
@@ -17,6 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.centerTitle = true,
     this.showMenuIcon = false,
+    this.backgroundColor = darkBlue,
   }) : super(key: key);
 
   @override
@@ -29,7 +31,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       preferredSize: const Size.fromHeight(kToolbarHeight),
       child: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
+        backgroundColor: backgroundColor,
         elevation: 0,
         centerTitle: centerTitle,
         title: Row(

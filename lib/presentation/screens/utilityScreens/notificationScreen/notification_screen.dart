@@ -80,11 +80,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
         backgroundColor: darkBlue,
         appBar: CustomAppBar(
           title: 'Notifications',
-          showBackButton: true,
+          showBackButton: false,
           centerTitle: false,
-          onBackButtonPressed: () {
-            Get.back();
-          },
           actions: [
             IconButton(
               onPressed: _notifications.isEmpty
@@ -133,86 +130,94 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       return Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 16, vertical: 8),
-                        child: SizedBox(
-                          height: 80,
-                          child: ListTile(
-                              leading: Icon(
+                        child: Column(children: [
+                          ListTile(
+                            leading: SizedBox(
+                              width: 32.0,
+                              child: Icon(
                                 Icons.notifications,
                                 color: white,
                                 size: AppSizes().notificationsListTileIconSize,
                               ),
-                              title: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      title,
-                                      style:
-                                          AppStyles.notificationListTitleStyle,
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 4,
-                                    ),
-                                    Text(
-                                      DateFormat.yMMMMd().format(date),
-                                      style: AppStyles
-                                          .notificationListTrailingStyle,
-                                    )
-                                  ]),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              tileColor: lightBlue,
-                              onTap: () {
-                                // Show popup here
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return AlertDialog(
-                                      backgroundColor: white,
-                                      title: Text(
-                                        title,
-                                        style: AppStyles
-                                            .notificationListTitleStyle
-                                            .copyWith(
-                                          color: darkBlue,
-                                        ),
-                                      ),
-                                      content: Column(
+                            ),
+                            title: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    title,
+                                    style: AppStyles.notificationListTitleStyle,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 3,
+                                  ),
+                                  Text(
+                                    DateFormat.yMMMMd().format(date),
+                                    style:
+                                        AppStyles.notificationListTrailingStyle,
+                                  )
+                                ]),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            tileColor: lightBlue,
+                            onTap: () {
+                              // Show popup here
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    backgroundColor: white,
+                                    content: SingleChildScrollView(
+                                      child: Column(
                                         mainAxisSize: MainAxisSize.min,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            DateFormat.yMMMMd().format(date),
-                                            style: AppStyles
-                                                .notificationListTrailingStyle,
+                                          Flexible(
+                                            child: Text(
+                                              title,
+                                              style: AppStyles
+                                                  .notificationListTitleStyle
+                                                  .copyWith(
+                                                color: darkBlue,
+                                              ),
+                                            ),
+                                          ),
+                                          Flexible(
+                                            child: Text(
+                                              DateFormat.yMMMMd().format(date),
+                                              style: AppStyles
+                                                  .notificationListTrailingStyle,
+                                            ),
                                           ),
                                           const SizedBox(height: 8),
-                                          Text(
-                                            body,
-                                            style: AppStyles
-                                                .notificationListSubtitleStyle,
+                                          Flexible(
+                                            child: Text(
+                                              body,
+                                              style: AppStyles
+                                                  .notificationListSubtitleStyle,
+                                            ),
                                           ),
                                         ],
                                       ),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          child: Text(
-                                            'Close',
-                                            style: AppStyles.buttonTextStyle,
-                                          ),
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text(
+                                          'Close',
+                                          style: AppStyles.buttonTextStyle,
                                         ),
-                                      ],
-                                    );
-                                  },
-                                );
-
-                                //
-                              }),
-                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ]),
                       );
                     },
                   ));

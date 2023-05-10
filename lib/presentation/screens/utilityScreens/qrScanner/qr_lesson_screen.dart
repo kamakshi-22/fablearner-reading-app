@@ -51,14 +51,18 @@ class QRLessonScreenState extends State<QRLessonScreen> {
                           onPressed: lessonFinished.value
                               ? null
                               : () async {
+                                  if (appController.isLessonFinished.value ==
+                                      true) {
+                                    return;
+                                  }
                                   if (!appController.isFinishing.value) {
                                     appController.isFinishing.value = true;
                                     await appController.finishLesson();
-
-                                    if (appController.isConfirmed.value !=
-                                        null) {
-                                      _fetchLessonDetails(widget.lessonId);
-                                    }
+                                    
+                                    // if (appController.isConfirmed.value !=
+                                    //     null) {
+                                    //   _fetchLessonDetails(widget.lessonId);
+                                    // }
                                   }
                                 },
                           child: const Text('Finish Lesson'),
@@ -113,8 +117,9 @@ class QRLessonScreenState extends State<QRLessonScreen> {
   void initState() {
     super.initState();
     appController = Get.find<AppController>();
-
+    appController.setIsLessonFinished(false);
     _fetchLessonDetails(widget.lessonId);
+
     appController.getCourseDetailsByLessonId(widget.lessonId);
   }
 
@@ -138,6 +143,7 @@ class QRLessonScreenState extends State<QRLessonScreen> {
   }
 
   void backTap() {
+    appController.setIsLessonFinished(false);
     Get.back();
   }
 
@@ -172,7 +178,6 @@ class QRLessonScreenState extends State<QRLessonScreen> {
               '';
       lessonName.value = lesson.name;
       lessonFinished.value = lesson.results.status == 'completed';
-
       isLoading.value = false;
     } catch (e) {
       isLoading.value = false;
@@ -200,7 +205,7 @@ class QRLessonScreenState extends State<QRLessonScreen> {
       errorBuilder: (context, errorMessage) {
         return Center(
           child: Text(
-            errorMessage,
+            "Error loading lesson. Please try again later.",
             style: AppStyles.errorTextStyle,
           ),
         );

@@ -167,6 +167,11 @@ class NotificationServices {
         () => const MeetingsScreen(),
         transition: Transition.rightToLeft,
       );
+    } else if (message.data['helpDesk'] == 'true') {
+      Get.to(
+        () => const HelpDesk(),
+        transition: Transition.rightToLeft,
+      );
     }
   }
 }

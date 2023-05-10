@@ -146,21 +146,3 @@ class _LessonsScreenState extends State<LessonsScreen> {
     );
   }
 }
-
-// if (widget.courseId == 0 || widget.courseId == null) {
-
-//   Get.off(
-//     () => HomeScreen(token: widget.token),
-//     duration: 800.milliseconds,
-//     transition: Transition.leftToRight,
-//   );
-// } else {
-//   Get.off(
-//     () => SectionsScreen(
-//       token: widget.token,
-//       courseId: widget.courseId,
-//     ),
-//     duration: 800.milliseconds,
-//     transition: Transition.leftToRight,
-//   );
-// }

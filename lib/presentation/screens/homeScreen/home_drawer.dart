@@ -110,6 +110,47 @@ class HomeDrawerState extends State<HomeDrawer> {
               color: white,
               thickness: 1.0,
             ),
+            /* -------------------------------------------------------------------------- */
+            /*                            Help Desk Tile                            */
+            /* -------------------------------------------------------------------------- */
+            ListTile(
+              title: Container(
+                padding: EdgeInsets.zero,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.live_help,
+                      color: white,
+                      size: AppSizes().drawerListTileIconSize,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        'Help Desk',
+                        style: AppStyles.homeDrawerListTileTextStyle,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              onTap: () {
+                /* Close the drawer */
+                Navigator.pop(context);
+
+                /* Navigate to meetings screen */
+                Get.to(
+                  () => const HelpDesk(),
+                  duration: const Duration(milliseconds: 600),
+                  transition: Transition.rightToLeft,
+                );
+              },
+            ),
+            const Divider(
+              color: white,
+              thickness: 1.0,
+            ),
 
             /* -------------------------------------------------------------------------- */
             /*                                 Logout Tile                                */

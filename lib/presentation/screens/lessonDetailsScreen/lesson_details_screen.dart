@@ -53,20 +53,19 @@ class LessonDetailsScreenState extends State<LessonDetailsScreen> {
                             ]);
                       } else {
                         return ElevatedButton(
-                          style: lessonFinished.value
+                          style: (appController.isLessonFinished.value == true)
                               ? AppStyles.disabledButtonStyle
                               : AppStyles.secondaryButtonStyle,
                           onPressed: lessonFinished.value
                               ? null
                               : () async {
+                                  if (appController.isLessonFinished.value ==
+                                      true) {
+                                    return;
+                                  }
                                   if (!appController.isFinishing.value) {
                                     appController.isFinishing.value = true;
                                     await appController.finishLesson();
-
-                                    if (appController.isConfirmed.value !=
-                                        null) {
-                                      _fetchLessonDetails(widget.lessonId);
-                                    }
                                   }
                                 },
                           child: const Text('Finish Lesson'),
@@ -121,7 +120,9 @@ class LessonDetailsScreenState extends State<LessonDetailsScreen> {
   void initState() {
     super.initState();
     appController = Get.find<AppController>();
+    appController.setIsLessonFinished(false);
     _fetchLessonDetails(widget.lessonId);
+
     appController.getCourseDetailsByLessonId(widget.lessonId);
     saveLesson();
   }
@@ -152,6 +153,7 @@ class LessonDetailsScreenState extends State<LessonDetailsScreen> {
   }
 
   void forwardTap() {
+    appController.setIsLessonFinished(false);
     if (isLoading.value) {
       if (kDebugMode) {
         print("LESSON DETAILS SCREEN: FORWARD TAP DISABLED");

@@ -70,10 +70,10 @@ class _CoursesScreenState extends State<CoursesScreen> {
                 ),
               ),
               child: ListTile(
-                title: Text(course.name, style: AppStyles.cardTitleStyle),
+                title: Text(course.name, style: AppStyles.courseCardTitleStyle),
                 trailing: Text(
                   '${course.sections.where((section) => section.percent == 100).length}/${course.sections.length}',
-                  style: AppStyles.cardTitleStyle.copyWith(
+                  style: AppStyles.courseCardTitleStyle.copyWith(
                     color: successGreen,
                   ),
                 ),

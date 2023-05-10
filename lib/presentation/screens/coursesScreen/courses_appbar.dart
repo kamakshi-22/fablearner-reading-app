@@ -23,8 +23,12 @@ CustomAppBar coursesAppBar(
         splashColor: lightBlue,
         splashRadius: 20,
       ),
+    ],
+  );
+}
 
-      /* notifications icon */
+
+/* /* notifications icon */
       IconButton(
         alignment: Alignment.center,
         onPressed: () {
@@ -41,7 +45,4 @@ CustomAppBar coursesAppBar(
         ),
         splashColor: lightBlue,
         splashRadius: 20,
-      ),
-    ],
-  );
-}
+      ), */

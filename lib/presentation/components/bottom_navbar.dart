@@ -14,14 +14,14 @@ class AppBottomNavBar extends StatelessWidget {
         Icons.qr_code,
         size: AppSizes().bottomNavBarIconSize,
       ),
-      label: 'QR Code',
+      label: 'QR Scan',
     ),
     BottomNavigationBarItem(
       icon: Icon(
-        Icons.live_help,
+        Icons.notifications,
         size: AppSizes().bottomNavBarIconSize,
       ),
-      label: 'Help Desk',
+      label: 'Notifications',
     ),
   ];
 
@@ -57,3 +57,12 @@ class AppBottomNavBar extends StatelessWidget {
     );
   }
 }
+
+
+    /* BottomNavigationBarItem(
+      icon: Icon(
+        Icons.live_help,
+        size: AppSizes().bottomNavBarIconSize,
+      ),
+      label: 'Help Desk',
+    ), */

@@ -28,15 +28,11 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //final appController = Get.put(AppController(token: widget.token));
-    if (kDebugMode) {
-      print('HOME SCREEN: Loaded Courses ${appController.courseList.length}');
-    }
     List<Widget> pages = [
-      // Create a list of pages to be shown in the body of the screen
+      // List of pages to be shown in the body of the screen
       CoursesScreen(appController: appController, token: widget.token),
       QrScanner(token: widget.token),
-      const HelpDesk(),
+      const NotificationScreen()
     ];
 
     return WillPopScope(
@@ -59,7 +55,7 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  CustomAppBar _buildAppBar() {
+  CustomAppBar? _buildAppBar() {
     switch (_selectedTabIndex) {
       case 0:
         return coursesAppBar(
@@ -73,11 +69,7 @@ class HomeScreenState extends State<HomeScreen> {
           showBackButton: false,
         );
       case 2:
-        return const CustomAppBar(
-          title: 'Help Desk',
-          centerTitle: false,
-          showBackButton: false,
-        );
+        return null;
       default:
         throw Exception('Invalid tab index');
     }
