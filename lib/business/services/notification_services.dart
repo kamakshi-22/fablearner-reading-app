@@ -167,7 +167,7 @@ class NotificationServices {
         () => const MeetingsScreen(),
         transition: Transition.rightToLeft,
       );
-    } else if (message.data['helpDesk'] == 'true') {
+    } else if (message.data['helpdesk'] == 'true') {
       Get.to(
         () => const HelpDesk(),
         transition: Transition.rightToLeft,
