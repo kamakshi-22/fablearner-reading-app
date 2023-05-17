@@ -18,18 +18,20 @@ FabReader is a direct instruction program that provides parents with simple, eff
 ## Screenshots
 
 ### Authentication and Home-Screen
+
 <div align="left">
 
-  <img src="https://github.com/kamakshi-22/fablearner-reading-app/assets/55135926/5ddf9b79-a9e8-4169-aa40-28a83d003069" alt="Login Screen" width="200"/>
-  <img src="https://github.com/kamakshi-22/fablearner-reading-app/assets/55135926/e2c9f21a-7910-4732-995e-fe83f56d6e14" alt="Login Form" width="200"/>
-  <img src="https://github.com/kamakshi-22/fablearner-reading-app/assets/55135926/622d9ed2-0200-416d-a53e-f4544aede455" alt="Courses Homescreen" width="200"/>
+<img src="assets\screenshots\1-login-screen.png" alt="Login Screen" width="200"/>
+  <img src="assets\screenshots\2-login-form.png" alt="Login Form" width="200"/>
+  <img src="assets\screenshots\3-courses-homescreen.png" alt="Courses Homescreen" width="200"/>
 </div>
 
 ### Lessons-Screen and QR-Scan
-<div align="leftr">
-  <img src="https://github.com/kamakshi-22/fablearner-reading-app/assets/55135926/515c4c65-47ff-4e56-8163-ecb95696d6ec" alt="Lessons Screen" width="200"/>
-  <img src="https://github.com/kamakshi-22/fablearner-reading-app/assets/55135926/22fe2853-f6b4-4cd6-ab86-ebaf1ccfeb1f" alt="Lesson Videos" width="200"/>
-  <img src="https://github.com/kamakshi-22/fablearner-reading-app/assets/55135926/433c2131-a6af-4414-91a6-1bc49f8dd10f" alt="QR Screen" width="200"/>
+
+<div align="left">
+  <img src="assets\screenshots\4-lessons-screen.png" alt="Lessons Screen" width="200"/>
+  <img src="assets\screenshots\5-lesson-video.png" alt="Lesson Videos" width="200"/>
+  <img src="assets\screenshots\6-qr-scan.jpg" alt="QR Screen" width="200"/>
 </div>
 
 ## Technologies
