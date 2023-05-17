@@ -1,8 +1,10 @@
 import 'package:fablearner_app/exports/presentation_exports.dart';
 import 'package:fablearner_app/exports/common_exports.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundController);
   final prefs = await SharedPreferences.getInstance();

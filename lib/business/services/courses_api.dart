@@ -8,7 +8,7 @@ class CoursesApi {
   static Future<List<Course>> getCourses(String token) async {
     try {
       final response = await http.get(
-        Uri.parse(ApiConfig.coursesUrl),
+        Uri.parse(ApiConfig.coursesUrl!),
         headers: {
           'Authorization': 'Bearer $token',
         },

@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class ForgotPasswordApi {
   static Future<bool> resetPassword(String username) async {
-    final url = Uri.parse(ApiConfig.forgotPasswordUrl + username);
+    final url = Uri.parse(ApiConfig.forgotPasswordUrl! + username);
 
     try {
       final response = await http.post(url);

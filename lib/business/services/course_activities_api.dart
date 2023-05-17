@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 class ActivitiesCourseApi {
   static Future<Map<String, dynamic>> getCourses(String token) async {
     final response = await http.get(
-      Uri.parse(ApiConfig.activitiesUrl),
+      Uri.parse(ApiConfig.activitiesUrl!),
       headers: {
         'Authorization': 'Bearer $token',
       },
